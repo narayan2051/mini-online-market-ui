@@ -1,24 +1,28 @@
 import { Container } from "@material-ui/core";
 import React from "react";
 import styles from "../../../components/sidebar/helpers/SidebarLink/styles";
+import { useCartDispatch, useCartState } from "../../../context/CartContext";
+
 
 
 export default function Product(data) {
   const classes = styles();
-  //   const [{ basket }, dispatch] = useStateValue();
-  //   console.log("here");
-  //   const addToBasket = () => {
-  //     // dispatch the item to data layer
-  //     dispatch({
-  //       type: "ADD_TO_BASKET",
-  //       item: {
-  //         id: id,
-  //         title: title,
-  //         description: description,
-  //         price: price,
-  //       },
-  //     });
-  //   };
+  var cartDispatch = useCartDispatch();
+  var { basket } = useCartState();
+    const addToBasket = () => {
+      // dispatch the item to data layer
+      cartDispatch({
+        type: "ADD_TO_BASKET",
+        item: {
+          id: data.id,
+          title: data.title,
+          description: data.description,
+          price: data.price,
+          quantity: 1
+        },
+      });
+      console.log(basket)
+    };
 
 
   return (<div className="product" key={data.id}>
@@ -35,7 +39,7 @@ export default function Product(data) {
         </div>
       </div>
 
-      <button className="fade">Add to Basket</button>
+      <button className="fade" onClick={addToBasket}>Add to Basket</button>
       </Container>
     </div>);
 }

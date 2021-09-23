@@ -19,8 +19,8 @@ export default function Footer(props) {
       <Container maxWidth="sm">
         Copyright &copy;&nbsp;
         <Link href="#" target="_blank">
-          Everest Mini Market Pvt.Ltd.
-        </Link>
+          Mini Online Market
+      </Link>
         &nbsp;{new Date().getFullYear()}
       </Container>
     </Box>

@@ -16,8 +16,6 @@ import { useForm } from "react-hook-form";
 import HTTPClient, { API_URL } from "../../../api/api";
 import logo from "../../../assets/img/logo.png";
 import AddAlertMessage from "../../../components/alert/Alert";
-import Spinner from "../../../components/loader/Loader";
-// context
 import { useUserDispatch } from "../../../context/UserContext";
 import { ENTER_VALID_EMAIL, IS_SESSION_EXPIRED, LOGIN_FAILURE, LOGIN_SUCCESS, REQUIRED_FIELD, SESSION_EXPIRED, SOMETHING_WENT_WRONG, SUCCESS, USER_ROLE } from "../../../utils/constants/index";
 import { Cookies } from "../../../utils/storage/cookies";
@@ -45,10 +43,8 @@ export default function LoginForm(props) {
   }, []);
 
   const onSubmit = data => {
-    //  setIsLoading(true);
     HTTPClient.post(API_URL.login, data)
       .then(response => {
-        // setIsLoading(false);
         let jsondata = response.data;
         if (jsondata.type === SUCCESS) {
           Cookies.writeCookie("auth",response.data.token);
@@ -72,8 +68,8 @@ export default function LoginForm(props) {
   return (
     <Container maxWidth="sm" className={classes.root}>
       <Box textAlign="center" my={3}>
-        <img src={logo} alt="HMIS Logo" width="124" />
-        <Box fontSize="h5.fontSize"> HMIS </Box>
+        <img src={logo} alt="MoM Logo" width="124" />
+        <Box fontSize="h5.fontSize"> MOM </Box>
         <Box component="small"> Mini Online Market </Box>
       </Box>
       <Card>
@@ -123,17 +119,17 @@ export default function LoginForm(props) {
               {isLoading ? (
                 ""
               ) : (
-                <Button
-                  endIcon={<ExitToAppIcon />}
-                  size="large"
-                  fullWidth
-                  color="primary"
-                  variant="contained"
-                  type="submit"
-                >
-                  Sign In
-                </Button>
-              )}
+                  <Button
+                    endIcon={<ExitToAppIcon />}
+                    size="large"
+                    fullWidth
+                    color="primary"
+                    variant="contained"
+                    type="submit"
+                  >
+                    Login
+                  </Button>
+                )}
             </Grid>
           </form>
         </CardContent>
@@ -145,7 +141,7 @@ export default function LoginForm(props) {
           color="textSecondary"
           className={classes["forget-password-label"]}
         >
-          Forgot Password?
+         Forget Password ?
         </Link>
       </Box>
     </Container>
