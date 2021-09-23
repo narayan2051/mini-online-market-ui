@@ -24,53 +24,7 @@ import HTTPClient, { ORDER_URL } from "../../../api/api";
 export default function OrderManagement(props) {
   const handleSubmit = () => {};
 
-  const [data, setData] = useState([
-    {
-      id: 1,
-      date: "2021/09/21",
-      user: "Sam",
-      products: "Dell laptop",
-      price: 999,
-      description: "Good Laptop",
-      status: "DELIVERED",
-    },
-    {
-      id: 2,
-      date: "2021/09/20",
-      user: "Joe",
-      products: "IPhone 15 Pro Max",
-      price: 1100,
-      description: "Good Phone",
-      status: "SHIPPED",
-    },
-    {
-      id: 3,
-      date: "2021/09/22",
-      user: "Brad",
-      products: "Book",
-      price: 50,
-      description: "Good Read",
-      status: "ON_THE_WAY",
-    },
-    {
-      id: 4,
-      date: "2021/09/22",
-      user: "Philip",
-      products: "MacBook Pro",
-      price: 1800,
-      description: "Perfect for coding",
-      status: "CANCELLED",
-    },
-    {
-      id: 5,
-      date: "2021/09/23",
-      user: "Samuel",
-      products: "Sony Headset",
-      price: 1200,
-      description: "Excellent Bass",
-      status: "PROCESSING",
-    },
-  ]);
+  const [data, setData] = useState([]);
   const getOrders = () => {
     HTTPClient.get(ORDER_URL)
       .then((response) => {
@@ -85,10 +39,10 @@ export default function OrderManagement(props) {
 
   const setStatusHandler = (id, status) => {
     const data = {
-      orderID: id,
+      orderId: id,
       status,
     };
-    HTTPClient.post(ORDER_URL, data)
+    HTTPClient.post(ORDER_URL + "/orderstatus", data)
       .then((response) => {
         getOrders();
       })
@@ -134,7 +88,7 @@ export default function OrderManagement(props) {
                         Processing
                       </Button>
                     </MenuItem>
-                    <MenuItem value="SHIPPED" >
+                    <MenuItem value="SHIPPED">
                       <Button type="submit">
                         <DirectionsBoat color="secondary" />
                         SHIPPED
