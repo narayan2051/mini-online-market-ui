@@ -1,10 +1,11 @@
-import { AppBar, Avatar, Box, IconButton, Link, Menu, MenuItem, Toolbar, Typography } from "@material-ui/core";
-import { Backup, ExitToApp as LogOutIcon, Menu as MenuIcon, Person as AccountIcon, Settings as SettingIcon } from "@material-ui/icons";
+import { AppBar, Avatar, Box, IconButton, Menu, MenuItem, Toolbar, Typography } from "@material-ui/core";
+import { Backup, ExitToApp as LogOutIcon, Menu as MenuIcon, Person as AccountIcon, Settings as SettingIcon, ShoppingBasket } from "@material-ui/icons";
 import classNames from "classnames";
 import React, { useEffect, useState } from "react";
 import { useHistory } from "react-router-dom";
 import HMIS, { API_URL } from "../../api/api";
 import logo from "../../assets/img/logo.png";
+import { useCartDispatch, useCartState } from "../../context/CartContext";
 // context
 import { toggleSidebar, useLayoutDispatch } from "../../context/LayoutContext";
 import { useUserDispatch } from "../../context/UserContext";
@@ -13,10 +14,11 @@ import { LOGOUT_SUCCESS, ROLE_ADMIN, ROLE_USER, SOMETHING_WENT_WRONG, USER_INFO 
 import { SessionStorage } from "../../utils/storage/sessionStorage";
 import AddAlertMessage from "../alert/Alert";
 import styles from "./style";
+import { Link } from "react-router-dom";
 
 export default function Header(props) {
   const [userFullName, setUserFullName] = useState("HMIS");
-  const userInfo = SessionStorage.getItem(USER_INFO);
+  const userInfo = SessionStorage.getItem(USER_INFO);  
 
   const classes = styles();
   let history = useHistory();
@@ -24,6 +26,9 @@ export default function Header(props) {
   // global
   var layoutDispatch = useLayoutDispatch();
   var userDispatch = useUserDispatch();
+  var cartDispatch = useCartDispatch();
+  var { basket } = useCartState();
+
 
   // local
   var [profileMenu, setProfileMenu] = useState(null);
@@ -98,6 +103,12 @@ export default function Header(props) {
           </Typography>
           <Avatar alt="Avatar" src={logo} />
         </Box>
+        <Link to="checkout">
+          <div className="header__optionBasket">
+            <ShoppingBasket className="" />
+            <span className="header__optionLineTwo header__basketCount">{basket && basket.length}</span>
+          </div>
+        </Link>
         <Menu anchorEl={profileMenu} open={Boolean(profileMenu)} onClose={() => setProfileMenu(null)} classes={{ paper: classes.profileMenu }} disableAutoFocusItem>
           <MenuItem className={classes.profileMenuItem}>
             <Link href="profile" variant="body1" className={classes.profileMenuLink}>
@@ -110,16 +121,16 @@ export default function Header(props) {
             <MenuItem className={classes.profileMenuItem}>
               <Link href="setting" variant="body1" className={classes.profileMenuLink}>
                 <SettingIcon className={classes.profileMenuIcon} />
-              Setting
-            </Link>
+                Setting
+              </Link>
             </MenuItem>
           }
           {!navigator.onLine && (
             <MenuItem className={classes.profileMenuItem}>
               <Link onClick={backupData} variant="body1" className={classes.profileMenuLink}>
                 <Backup className={classes.profileMenuIcon} />
-              Data Backup
-            </Link>
+                Data Backup
+              </Link>
             </MenuItem>
           )}
           <MenuItem className={classes.profileMenuItem}>

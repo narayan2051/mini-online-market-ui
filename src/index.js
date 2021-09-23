@@ -7,16 +7,21 @@ import { CssBaseline } from "@material-ui/core";
 import { LayoutProvider } from "./context/LayoutContext";
 import { UserProvider } from "./context/UserContext";
 import Themes from "./themes";
+import { CartProvider } from "./context/CartContext";
 
 ReactDOM.render(
-  <LayoutProvider>
-    <UserProvider>
-      <ThemeProvider theme={Themes.default}>
-        <CssBaseline />
-        <App />
-      </ThemeProvider>
-    </UserProvider>
-  </LayoutProvider>,
+ 
+    <LayoutProvider>
+      <UserProvider>
+        <CartProvider>
+        <ThemeProvider theme={Themes.default}>
+          <CssBaseline />
+          <App />
+        </ThemeProvider>
+        </CartProvider>
+      </UserProvider>
+    </LayoutProvider>
+  ,
   document.getElementById("root")
 );
 
