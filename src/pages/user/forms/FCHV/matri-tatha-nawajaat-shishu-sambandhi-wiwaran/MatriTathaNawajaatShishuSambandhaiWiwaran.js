@@ -121,7 +121,7 @@ export default function MatriTathaNawajaatShishuSambandhaiWiwaran() {
   }
 
   return (
-    <>
+    <div>
       <Box display="flex" flexDirection="row" alignItems="center" justifyContent="space-between" borderBottom={1} mb={3} pb={1}>
         <Typography variant="h5">
           मातृ तथा नवजात शिशु सम्वन्धि विवरण
@@ -632,6 +632,6 @@ export default function MatriTathaNawajaatShishuSambandhaiWiwaran() {
         </Box>
       </CustomModal>
       <MatriTathaNawajaatShishuSambandhaiWiwaranRegister tableData={tableData} showActionColumn={tableData.length !== 0} onEditRow={handleEditFunction} />
-    </>
+    </div>
   );
 }

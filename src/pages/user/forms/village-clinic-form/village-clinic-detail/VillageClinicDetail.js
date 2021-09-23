@@ -33,7 +33,7 @@ export default function VillageClinicDetail() {
   }, []);
 
   return (
-    <>
+    <div>
       <Box mb={3}>
         <VillageClinicRegistration
           villageClinicInfo={villageClinicGeneralInfo}
@@ -65,7 +65,7 @@ export default function VillageClinicDetail() {
       <Box mb={3}>
         <OtherDetails villageClinicServiceDate={villageClinicGeneralInfo.villageClinicServiceDate} />
       </Box>
-    </>
+    </div>
   );
 
 }

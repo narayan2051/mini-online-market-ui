@@ -63,7 +63,7 @@ export default function SidebarLink({
     );
   }
   return (
-    <>
+    <div>
       <ListItem
         button
         component={link && Link}
@@ -113,7 +113,7 @@ export default function SidebarLink({
           </List>
         </Collapse>
       )}
-    </>
+    </div>
   );
 
   function toggleCollapse(e) {

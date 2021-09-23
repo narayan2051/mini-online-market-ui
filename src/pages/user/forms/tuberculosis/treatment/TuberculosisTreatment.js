@@ -459,7 +459,7 @@ export default function TuberculosisTreatment() {
   }
 
   return (
-    <>
+    <div>
       <Box display="flex" flexDirection="row" alignItems="center" justifyContent="space-between" borderBottom={1} mb={3} pb={1}>
         <Typography variant="h5">
           क्षयरोग उपचार रजिष्टर
@@ -1486,6 +1486,6 @@ export default function TuberculosisTreatment() {
       >
         <Typography variant="caption" component="em" color="secondary">नोट : एक पटक विवरण थपेपछि वा हटाएपछि तपाईं यस कार्यलाई पूर्ववत गर्न सक्नुहुन्न।</Typography>
       </CustomModal>
-    </>
+    </div>
   );
 }

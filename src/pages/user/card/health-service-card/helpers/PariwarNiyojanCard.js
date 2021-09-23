@@ -3,7 +3,7 @@ import { Box, Grid, Table, TableBody, TableCell, TableContainer, TableHead, Tabl
 
 export default function PariwarNiyojanCard() {
   return (
-    <>
+    <div>
       <Box mt={3} mb={1}>
         <Grid container spacing={2}>
           <Grid item xs>
@@ -53,6 +53,6 @@ export default function PariwarNiyojanCard() {
           </TableBody>
         </Table>
       </TableContainer>
-    </>
+    </div>
   )
 }

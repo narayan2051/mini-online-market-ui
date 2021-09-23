@@ -276,7 +276,7 @@ export default function VillageClinicRegistration(props) {
   }
 
   return (
-    <>
+    <div>
       <Box display="flex" flexDirection="row" alignItems="center" justifyContent="space-between" borderBottom={1} mb={3} pb={1}>
         <Typography variant="h5">
           गाउँघर क्लिनिक दर्ता रजिस्टर
@@ -546,6 +546,6 @@ export default function VillageClinicRegistration(props) {
       </CustomModal>
 
       <VillageClinicRegistrationRegister tableData={mainRegisterData} showActionColumn={mainRegisterData.length !== 0} onEditRow={villageClinicRegistrationEditFunction} />
-    </>
+    </div>
   );
 };

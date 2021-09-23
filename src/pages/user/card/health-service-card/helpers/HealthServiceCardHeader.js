@@ -7,7 +7,7 @@ import styles from "../style";
 export default function HealthServiceCardHeader(props) {
   const classes = styles();
   return (
-    <>
+    <div>
       <Box display="flex" alignItems="center" justifyContent="space-between">
         <Box>
           <img src={governmentLogo} alt="Nepal Government HMIS" className={classes.logoWidth}></img>
@@ -34,6 +34,6 @@ export default function HealthServiceCardHeader(props) {
         <Box>
         </Box>
       </Box>
-    </>
+    </div>
   )
 }

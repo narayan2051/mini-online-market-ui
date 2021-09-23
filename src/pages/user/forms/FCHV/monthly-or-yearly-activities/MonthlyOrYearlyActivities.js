@@ -117,7 +117,7 @@ export default function MonthlyOrYearlyActivities(props) {
   }
 
   return (
-    <>
+    <div>
       <Box display="flex" flexDirection="row" alignItems="center" justifyContent="space-between" borderBottom={1} mb={3} pb={1}>
         <Typography variant="h6">
           महिला स्वास्थ्य स्वयंसेवीकाले गरेका कामहरुको मासिक तथा वर्षिक अभिलेख
@@ -369,6 +369,6 @@ export default function MonthlyOrYearlyActivities(props) {
         </Box>
       </CustomModal>
       <MonthlyOrYearlyActivitiesRegister tableData={monthlyYearlyActivitiesData} showActionColumn={monthlyYearlyActivitiesData.length !== 0} onEditRow={handleEditFunction} addNewData={addNewData.bind(this)} showTable={showTable} />
-    </>
+    </div>
   );
 }

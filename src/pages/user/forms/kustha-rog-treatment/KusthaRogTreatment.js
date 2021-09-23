@@ -321,7 +321,7 @@ export default function KusthaRogTreatment() {
   }
 
   return (
-    <>
+    <div>
       <Box display="flex" flexDirection="row" alignItems="center" justifyContent="space-between" borderBottom={1} mb={3} pb={1}>
         <Typography variant="h5">
           कुष्ठरोग उपचार रजिस्टर
@@ -903,6 +903,6 @@ export default function KusthaRogTreatment() {
         </CustomDrawer>
       )}
       <KusthaRogClassificationModal showModal={showModal} closeModal={closeModal} approvedStatusAndId={approvedStatusAndId} getPendingApprovalData={getPendingApprovalData} showConfirmationModal={showConfirmationModal} />
-    </>
+    </div>
   );
 }

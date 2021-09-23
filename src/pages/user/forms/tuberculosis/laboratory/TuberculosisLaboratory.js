@@ -259,7 +259,7 @@ export default function TuberculosisLaboratory(props) {
   }
 
   return (
-    <>
+    <div>
       <Box display="flex" flexDirection="row" alignItems="center" justifyContent="space-between" borderBottom={1} mb={3} pb={1}>
         <Typography variant="h5">
           क्षयरोग प्रयोगशाला रजिष्टर
@@ -742,6 +742,6 @@ export default function TuberculosisLaboratory(props) {
         </Box>
       </CustomModal>
       <TuberculosisLaboratoryRegister tableData={tbLabRegisterData} showActionColumn={tbLabRegisterData.length !== 0} onEditRow={tuberculosisLaboratoryEditFunction.bind(this)} />
-    </>
+    </div>
   );
 }

@@ -45,7 +45,7 @@ export default function KusthaRogClassificationModal({ showModal, closeModal, ap
   }
 
   return (
-    <>
+    <div>
       <CustomModal
         title="वर्गीकरण तालिका"
         showModal={showModal}
@@ -98,6 +98,6 @@ export default function KusthaRogClassificationModal({ showModal, closeModal, ap
       >
         <Typography variant="caption" component="em" color="secondary">नोट:एक पटक विवरण थपेपछि वा हटाएपछि तपाईं यस कार्यलाई पूर्ववत गर्न सक्नुहुन्न।</Typography>
       </CustomModal>
-    </>
+    </div>
   )
 }

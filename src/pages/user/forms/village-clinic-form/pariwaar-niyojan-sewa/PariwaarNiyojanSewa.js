@@ -591,7 +591,7 @@ export default function PariwaarNiyojanSewa(props) {
   }
 
   return (
-    <>
+    <div>
       <Box display="flex" flexDirection="row" alignItems="center" justifyContent="space-between" borderBottom={1} mb={3} pb={1}>
         <Typography variant="h5">परिवार नियोजन सेवा</Typography>
         <Box display="flex" alignItems="center">
@@ -793,7 +793,7 @@ export default function PariwaarNiyojanSewa(props) {
             <Typography variant="h6">परिवार नियोजनको साधन विवरण</Typography>
           </Box>
           {(!pillsDepoDetailsList.length) ? (
-            <>
+            <div>
               <Grid container spacing={2} alignItems="center" className={classes.row}>
                 <Grid item xs>
                   <FormControlLabel
@@ -814,7 +814,7 @@ export default function PariwaarNiyojanSewa(props) {
               </Grid>
               <Grid container spacing={2} alignItems="center" className={classes.row}>
                 {!onlyCondom && (
-                  <>
+                  <div>
                     <Grid item xs={2}>
                       <FormControl component="fieldset">
                         <RadioGroup
@@ -870,7 +870,7 @@ export default function PariwaarNiyojanSewa(props) {
                         fullWidth
                       />
                     </Grid>
-                  </>
+                  </div>
                 )}
                 <Grid item xs>
                   <TextField
@@ -902,9 +902,9 @@ export default function PariwaarNiyojanSewa(props) {
                   />
                 </Grid>
               </Grid>
-            </>
+            </div>
           ) :
-            <>
+            <div>
               <Box className={classes.pillsDepoDetailsContainer}>
                 <Grid container spacing={2} alignItems="center" className={classes.row}>
                   <Grid item xs>
@@ -926,7 +926,7 @@ export default function PariwaarNiyojanSewa(props) {
                 </Grid>
                 <Grid container spacing={2} alignItems="center" className={classes.row}>
                   {!onlyCondom && (
-                    <>
+                    <div>
                       <Grid item xs={2}>
                         <FormControl component="fieldset">
                           <RadioGroup
@@ -980,7 +980,7 @@ export default function PariwaarNiyojanSewa(props) {
                           fullWidth
                         />
                       </Grid>
-                    </>
+                    </div>
                   )}
                   <Grid item xs>
                     <TextField
@@ -1011,11 +1011,11 @@ export default function PariwaarNiyojanSewa(props) {
                   </Grid>
                 </Grid>
               </Box>
-            </>
+            </div>
           }
         </Box>
       </CustomModal>
       <PariwaarNiyojanSewaRegister tableData={registerData} showActionColumn={registerData.length !== 0} onEditRow={handleRowEdit} />
-    </>
+    </div>
   )
 }

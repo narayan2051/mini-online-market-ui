@@ -122,7 +122,7 @@ export default function TDKhopSewa(props) {
   }, [sewaDartaaRegisterDate]);
 
   return (
-    <>
+    <div>
       <Box display="flex" flexDirection="row" alignItems="center" justifyContent="space-between" borderBottom={1} mb={3} pb={1}>
         <Typography variant="h5">
           टी.डी. खोप सेवा
@@ -356,6 +356,6 @@ export default function TDKhopSewa(props) {
         </Box>
       </CustomModal>
       <TDKhopSewaRegister tableData={mainRegisterData} showActionColumn={mainRegisterData.length !== 0} onEditRow={tdKhopSewaEditFunction.bind(this)} />
-    </>
+    </div>
   );
 }

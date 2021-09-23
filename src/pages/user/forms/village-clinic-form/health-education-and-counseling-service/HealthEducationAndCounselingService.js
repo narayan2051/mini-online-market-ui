@@ -68,7 +68,7 @@ export default function HealthEducationAndCounselingService(props) {
   }
 
   return (
-    <>
+    <div>
       <Box display="flex" flexDirection="row" alignItems="center" justifyContent="space-between" borderBottom={1} mb={3} pb={1}>
         <Typography variant="h5">स्वास्थ्य शिक्षा तथा परामर्श सेवा </Typography>
         <Box display="flex" alignItems="center">
@@ -168,5 +168,5 @@ export default function HealthEducationAndCounselingService(props) {
         </Grid>
       </CustomModal>
       <HealthEducationAndCounselingServiceRegister tableData={registerData} onEditRow={handleEditFunction} showActionColumn={registerData.length !== 0} villageClinicServiceDate={props.villageClinicServiceDate} />
-    </>)
+    </div>)
 }

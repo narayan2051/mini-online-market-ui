@@ -65,7 +65,7 @@ export default function GrowthMonitoringBelowTwoYears(props) {
   }
 
   return (
-    <>
+    <div>
       <Box ref={printComponentRef}>
         <Box display="flex" flexDirection="row" alignItems="center" justifyContent="space-between" borderBottom={1} mb={3} pb={1}>
           <Typography>बृद्धि अनुगमनमा आएका २ वर्ष मुनिका कम तौल भएका बालबालिकाको जात/जातिगत मासिक विवरण</Typography>
@@ -142,7 +142,7 @@ export default function GrowthMonitoringBelowTwoYears(props) {
               <TableBody classes={{ root: "align-center" }}>
                 {
                   monthlyReport ? (
-                    <>
+                    <div>
                       <TableRow>
                         <TableCell>बैशाख</TableCell>
                         <TableCell>{monthlyReport["1"] ? monthlyReport["1"].total : "-"}</TableCell>
@@ -335,7 +335,7 @@ export default function GrowthMonitoringBelowTwoYears(props) {
                         <TableCell>{monthlyReport["12"] ? monthlyReport["12"].aanyaFemaleCount : "-"}</TableCell>
                         <TableCell>{monthlyReport["12"] ? monthlyReport["12"].aanyaMaleCount : "-"}</TableCell>
                       </TableRow>
-                    </>
+                    </div>
                   ) : (
                     <TableRow>
                       <TableCell colSpan={14} align="center" size="medium">{NO_RECORDS_FOUND}</TableCell>
@@ -347,6 +347,6 @@ export default function GrowthMonitoringBelowTwoYears(props) {
           </TableContainer>
         </Box>
       </Box>
-    </>
+    </div>
   )
 }

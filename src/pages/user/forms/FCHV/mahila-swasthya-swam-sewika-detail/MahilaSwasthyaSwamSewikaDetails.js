@@ -95,7 +95,7 @@ export default function MahilaSwasthyaSwamSewikaDetails(props) {
     })
   }
   return (
-    <>
+    <div>
       <Box display="flex" flexDirection="row" alignItems="center" justifyContent="space-between" borderBottom={1} mb={3} pb={1}>
         <Typography variant="h5">
           महिला स्वास्थ्य स्वयंसेविका विवरण
@@ -232,6 +232,6 @@ export default function MahilaSwasthyaSwamSewikaDetails(props) {
         </Box>
       </CustomModal>
       <MahilaSwasthyaSwamSewikaDetailRegister tableData={tableData} showActionColumn={tableData.length !== 0} onEditRow={handleEditFunction} />
-    </>
+    </div>
   );
 }

@@ -39,7 +39,7 @@ export default function NewBornChildDeathDetails() {
   }
 
   return (
-    <>
+    <div>
       <Box display="flex" flexDirection="row" alignItems="center" justifyContent="space-between" borderBottom={1} mb={3} pb={1}>
         <Typography variant="h5">
           नवजात शिशु मृत्यु विवरण
@@ -65,7 +65,7 @@ export default function NewBornChildDeathDetails() {
       <Box className={classes.childrenFromTwentyEightDaysToFiftyNineMonths}>
         <ChildrenFromTwentyEightDaysToFiftyNineMonths volunteersName={femaleVolunteersName} selectedVolunteerId={registerVolunteerId} />
       </Box>
-    </>
+    </div>
   )
 
 }

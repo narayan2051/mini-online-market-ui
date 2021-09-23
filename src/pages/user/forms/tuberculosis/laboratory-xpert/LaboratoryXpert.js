@@ -236,7 +236,7 @@ export default function LaboratoryXpert() {
   }
 
   return (
-    <>
+    <div>
       <Box display="flex" flexDirection="row" alignItems="center" justifyContent="space-between" borderBottom={1} mb={3} pb={1}>
         <Typography variant="h5">
           क्षयरोग प्रयोगशाला(Xpert) रजिष्टर
@@ -740,6 +740,6 @@ export default function LaboratoryXpert() {
         </Box>
       </CustomModal>
       <TuberculosisLaboratoryXpertRegister tableData={tbLabRegisterData} showActionColumn={tbLabRegisterData.length !== 0} onEditRow={tuberculosisXpertLaboratoryEditFunction.bind(this)} />
-    </>
+    </div>
   );
 }

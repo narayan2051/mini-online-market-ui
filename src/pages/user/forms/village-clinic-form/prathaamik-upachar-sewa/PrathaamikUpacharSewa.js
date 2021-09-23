@@ -169,7 +169,7 @@ export default function PrathaamikUpacharSewa(props) {
     setAgeUnitLabel("");
   }
 
-  return (<>
+  return (<div>
     <Box display="flex" flexDirection="row" alignItems="center" justifyContent="space-between" borderBottom={1} mb={3} pb={1}>
       <Typography variant="h5">प्राथामिक/सामान्य उपचार सेवा</Typography>
       <Box display="flex" alignItems="center">
@@ -403,6 +403,6 @@ export default function PrathaamikUpacharSewa(props) {
       </Box>
     </CustomModal>
     <PrathaamikUpacharSewaRegister tableData={registerData} showActionColumn={registerData.length !== 0} onEditRow={handleEditFunction} />
-  </>
+  </div>
   )
 }

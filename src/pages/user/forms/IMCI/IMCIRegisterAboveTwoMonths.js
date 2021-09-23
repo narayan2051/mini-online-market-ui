@@ -253,7 +253,7 @@ export default function IMCIRegisterAboveTwoMonths() {
 
 
   return (
-    <>
+    <div>
       <Box display="flex" flexDirection="row" alignItems="center" justifyContent="space-between" borderBottom={1} mb={3} pb={1}>
         <Typography variant="h6">
           IMCI REGISTER FOR CHILDREN AGED 2‐59 MONTHS
@@ -1395,6 +1395,6 @@ export default function IMCIRegisterAboveTwoMonths() {
         </Box>
       </CustomModal>
       <IMCITwoMonthsAndAboveRegister tableData={mainRegisterData} showActionColumn={mainRegisterData.length !== 0} onEditRow={imciRegisterAboveTwoMonthsEditFunction.bind(this)} />
-    </>
+    </div>
   );
 }

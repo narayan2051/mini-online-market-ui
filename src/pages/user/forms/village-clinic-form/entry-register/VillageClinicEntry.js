@@ -103,7 +103,7 @@ export default function VillageClinicEntry() {
   }, [modalDefaultValues]);
 
   return (
-    <>
+    <div>
       <Box display="flex" flexDirection="row" alignItems="center" justifyContent="space-between" borderBottom={1} mb={3} pb={1}>
         <Typography variant="h5">
           गाउँघर क्लिनिकहरु
@@ -183,6 +183,6 @@ export default function VillageClinicEntry() {
         </Grid>
       </CustomModal>
       <VillageClinicEntryRegister tableData={mainRegisterData} showActionColumn={mainRegisterData.length !== 0} onEditRow={editFunction} />
-    </>
+    </div>
   );
 }

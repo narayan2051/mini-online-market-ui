@@ -221,7 +221,7 @@ export default function ChildrenBelowTwoMonths(props) {
   }
 
   return (
-    <>
+    <div>
       <Box display="flex" flexDirection="row" alignItems="center" justifyContent="space-between" borderBottom={1} mb={3} pb={1}>
         <Typography variant="h5">
           २ महिना भन्दा कम उमेरका बिरामी बच्चाहरुको व्यवस्थापन
@@ -885,6 +885,6 @@ export default function ChildrenBelowTwoMonths(props) {
         </Box>
       </CustomModal>
       <ChildrenBelowTwoMonthsRegister tableData={mainRegisterData} showActionColumn={mainRegisterData.length !== 0} onEditRow={childrenBelowTwoMonthsEditFunction} villageClinicServiceDate={props.villageClinicServiceDate} />
-    </>
+    </div>
   );
 }

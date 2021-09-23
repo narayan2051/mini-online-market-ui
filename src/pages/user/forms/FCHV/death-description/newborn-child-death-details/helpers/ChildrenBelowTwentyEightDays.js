@@ -118,7 +118,7 @@ export default function ChildrenBelowTwentyEightDays(props) {
     setValue("womenVolunteerId", value);
   }
   return (
-    <>
+    <div>
       <Box display="flex" flexDirection="row" alignItems="center" justifyContent="space-between" borderBottom={1} mb={3} pb={1}>
         <Typography variant="h6">
           जन्मेको २८ दिनभित्र मृत्यु भएका नवजात शिशुहरु
@@ -397,6 +397,6 @@ export default function ChildrenBelowTwentyEightDays(props) {
         </Box>
       </CustomModal>
       <NewBornDeathDescriptionRegister tableData={mainRegisterData} showActionColumn={mainRegisterData.length !== 0} onEditRow={handleEditFunction} />
-    </>
+    </div>
   );
 }

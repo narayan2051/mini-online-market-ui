@@ -174,7 +174,7 @@ export default function EmergencyService() {
   }
 
   return (
-    <>
+    <div>
       <Box display="flex" flexDirection="row" alignItems="center" justifyContent="space-between" borderBottom={1} mb={3} pb={1}>
         <Typography variant="h5">
           आकस्मिक सेवा रजिस्टर
@@ -723,6 +723,6 @@ export default function EmergencyService() {
         </Box>
       </CustomModal>
       <EmergencyServiceRegister tableData={emergencyServiceTableData} showActionColumn={emergencyServiceTableData.length !== 0} onEditRow={emergencyDetailEditFunction.bind(this)} getRegisterData={getRegisterData} />
-    </>
+    </div>
   );
 }

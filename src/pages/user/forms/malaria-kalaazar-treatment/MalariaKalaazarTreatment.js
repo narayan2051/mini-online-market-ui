@@ -350,7 +350,7 @@ export default function MalariaKalaazarTreatmentForm() {
   }
 
   return (
-    <>
+    <div>
       <Box display="flex" flexDirection="row" alignItems="center" justifyContent="space-between" borderBottom={1} mb={3} pb={1}>
         <Typography variant="h5">
           औलो तथा कालाजार रोगको उपचार रजिष्टर
@@ -591,7 +591,7 @@ export default function MalariaKalaazarTreatmentForm() {
               {errors.registerType && <span className="error-message">{REQUIRED_FIELD}</span>}
             </Grid>
             {showMalariaReportField && (
-              <>
+              <div>
                 <Grid item xs={2}>
                   <CustomReactSelect
                     label="रिसेप्टिभिटी"
@@ -623,7 +623,7 @@ export default function MalariaKalaazarTreatmentForm() {
                     onChange={handleCustomReactSelectChange}
                   />
                 </Grid>
-              </>
+              </div>
             )}
             <Grid item xs={2}>
               <CustomReactSelect
@@ -673,7 +673,7 @@ export default function MalariaKalaazarTreatmentForm() {
             <Typography variant="h6">{isRegisterTypeKalaazar ? "कालाजार" : "औलो"} उपचार सम्बन्धी विवरणहरू</Typography>
           </Box>
           {showMalariaReportField && (
-            <>
+            <div>
               <Grid container spacing={2} alignItems="center" className={classes.row}>
                 <Grid item xs>
                   <CustomReactSelect
@@ -716,10 +716,10 @@ export default function MalariaKalaazarTreatmentForm() {
                   />
                 </Grid>
               </Grid>
-            </>
+            </div>
           )}
           {isRegisterTypeKalaazar && (
-            <>
+            <div>
               <Grid container spacing={2} alignItems="center" className={classes.row}>
                 <Grid item xs>
                   <CustomReactSelect
@@ -745,7 +745,7 @@ export default function MalariaKalaazarTreatmentForm() {
                   )}
                 </Grid>
               </Grid>
-            </>
+            </div>
           )}
           {
             showTreatmentAndCounseling &&
@@ -849,6 +849,6 @@ export default function MalariaKalaazarTreatmentForm() {
       >
         <Typography variant="caption" component="em" color="secondary">नोट : एक पटक विवरण थपेपछि वा हटाएपछि तपाईं यस कार्यलाई पूर्ववत गर्न सक्नुहुन्न।</Typography>
       </CustomModal>
-    </>
+    </div>
   )
 }

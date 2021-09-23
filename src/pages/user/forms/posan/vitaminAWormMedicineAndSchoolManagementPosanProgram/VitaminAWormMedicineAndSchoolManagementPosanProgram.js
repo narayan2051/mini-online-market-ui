@@ -99,7 +99,7 @@ export default function VitaminAWormMedicineAndSchoolManagementPosanProgram() {
   }
 
   return (
-    <>
+    <div>
       <Box display="flex" flexDirection="row" alignItems="center" justifyContent="space-between" borderBottom={1} mb={3} pb={1}>
         <Typography variant="h5">
           भिटामिन ए, जुकाको औषधी र विद्यालय स्वास्थ्य तथा पोषण कार्यक्रम (अभियान)
@@ -449,6 +449,6 @@ export default function VitaminAWormMedicineAndSchoolManagementPosanProgram() {
         firstPhaseDate={registerDate.firstPhaseToDate}
         secondPhaseDate={registerDate.secondPhaseToDate}
       />
-    </>
+    </div>
   )
 }

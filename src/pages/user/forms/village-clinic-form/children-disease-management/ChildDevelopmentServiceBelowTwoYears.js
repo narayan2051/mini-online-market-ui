@@ -183,7 +183,7 @@ export default function ChildDevelopmentServiceBelowTwoYears(props) {
   }
 
   return (
-    <>
+    <div>
       <Box display="flex" flexDirection="row" alignItems="center" justifyContent="space-between" borderBottom={1} mb={3} pb={1}>
         <Typography variant="h5">
           दुई वर्षमुनिका बाल-बालिकाको वृद्धि अनुगमन सेवा
@@ -229,7 +229,7 @@ export default function ChildDevelopmentServiceBelowTwoYears(props) {
               {errors.villageClinicDartaaNumber && <span className="error-message">{REQUIRED_FIELD}</span>}
             </Grid>
             {showPatientGeneralDetail && (
-              <>
+              <div>
                 <Grid item xs>
                   <TextField
                     InputProps={{ readOnly: true }}
@@ -273,11 +273,11 @@ export default function ChildDevelopmentServiceBelowTwoYears(props) {
                   />
                   {errors.casteCode && <span className="error-message">{REQUIRED_FIELD}</span>}
                 </Grid>
-              </>
+              </div>
             )}
           </Grid>
           {showPatientGeneralDetail && (
-            <>
+            <div>
               <Grid container spacing={2} alignItems="center" className={classes.row}>
                 <Grid item xs>
                   <CustomReactSelect
@@ -409,12 +409,12 @@ export default function ChildDevelopmentServiceBelowTwoYears(props) {
                 </Grid>
                 <Grid item xs></Grid>
               </Grid>
-            </>
+            </div>
           )}
         </Box>
         <Box className={classes.otherDetails}>
           {((JSON.stringify(informationAvailableForBreastFeedTillSixMonth) === "{}") || informationAvailableForBreastFeedTillSixMonth.editable) ? (
-            <>
+            <div>
               <Typography>जन्मेको ६ महिना सम्म स्तनपान मात्र</Typography>
               <Grid container spacing={2} alignItems="center" className={classes.row}>
                 <Grid item xs>
@@ -427,12 +427,12 @@ export default function ChildDevelopmentServiceBelowTwoYears(props) {
                   />
                 </Grid>
               </Grid>
-            </>
+            </div>
           ) : (
             <Typography>जन्मेको ६ महिना सम्म स्तनपान मात्र: {informationAvailableForBreastFeedTillSixMonth.value === YES ? "गराएको" : "नगराएको"} (मिति: {AppUtils.replaceWithNepaliDigit(DateUtils.getDateFromMilliseconds(informationAvailableForBreastFeedTillSixMonth.date))})</Typography>
           )}
           {((JSON.stringify(informationAvailableForBreastFeedingWithOtherFoodAfterSixMonths) === "{}") || informationAvailableForBreastFeedingWithOtherFoodAfterSixMonths.editable) ? (
-            <>
+            <div>
               <Typography>६ महिनापछी स्तनपान साथै ठोस, अर्धठोस र नरम खाना शुरु</Typography>
               <Grid container spacing={2} alignItems="center" className={classes.row}>
                 <Grid item xs>
@@ -445,7 +445,7 @@ export default function ChildDevelopmentServiceBelowTwoYears(props) {
                   />
                 </Grid>
               </Grid>
-            </>
+            </div>
           ) : (
             <Box mt={1} mb={2}>
               <Typography>६ महिनापछी स्तनपान साथै ठोस, अर्धठोस र नरम खाना शुरु: {informationAvailableForBreastFeedingWithOtherFoodAfterSixMonths.value === YES ? "गराएको" : "नगराएको"} (मिति: {AppUtils.replaceWithNepaliDigit(DateUtils.getDateFromMilliseconds(informationAvailableForBreastFeedingWithOtherFoodAfterSixMonths.date))})</Typography>
@@ -479,7 +479,7 @@ export default function ChildDevelopmentServiceBelowTwoYears(props) {
         </Box>
       </CustomModal>
       <ChildDevelopmentServiceBelowTwoYearsRegister tableData={mainRegisterData} showActionColumn={mainRegisterData.length !== 0} onEditRow={findDetailsOfPreviousPatient} />
-    </>
+    </div>
   );
 
 }
