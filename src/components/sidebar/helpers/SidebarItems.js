@@ -1,7 +1,10 @@
 import {
   AccountBox,
-  Add, GroupAdd,
-  Home, RateReviewSharp
+  Add,
+  Group,
+  GroupAdd,
+  Home,
+  RateReviewSharp,
 } from "@material-ui/icons";
 import React from "react";
 
@@ -51,7 +54,13 @@ export const USER_SIDEBAR_LINKS = [
   {
     id: 0,
     label: "Products",
-    link: "products",
-    iconComponent: <Home fontSize="small" />
+    link: "/user/products",
+    iconComponent: <Home fontSize="small" />,
+  },
+  {
+    id: 1,
+    label: "User Profile",
+    link: "/user/user-profile",
+    iconComponent: <Group fontSize="small" />,
   },
 ];
