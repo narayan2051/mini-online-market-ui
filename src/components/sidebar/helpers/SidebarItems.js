@@ -1,4 +1,4 @@
-import { Assessment, Group, Home, Layers, Receipt, Search } from "@material-ui/icons";
+import { Add, Assessment, Group, Home, Layers, Receipt, Search } from "@material-ui/icons";
 import React from "react";
 
 export const ADMIN_SIDEBAR_LINKS = [
@@ -31,16 +31,10 @@ export const SELLER_SIDEBAR_LINKS = [
   },
   {
     id: 1,
-    label: "बिल रेकर्डहरु",
-    link: "health-organizations-wise-detail",
-    iconComponent: <Receipt fontSize="small" />
-  },
-  {
-    id: 2,
-    label: "सेवाको प्रकारअनुसार रिपोर्ट",
-    link: "category-report",
-    iconComponent: <Assessment fontSize="small" />
-  },
+    label: "Add Product",
+    link: "add-product",
+    iconComponent: <Add fontSize="small" />
+  }
 ];
 
 export const USER_SIDEBAR_LINKS = [
