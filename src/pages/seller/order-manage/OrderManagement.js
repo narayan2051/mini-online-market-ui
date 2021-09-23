@@ -79,9 +79,9 @@ export default function OrderManagement(props) {
       .catch((err) => console.log(err.message));
   };
 
-    useEffect(() => {
-      getOrders();
-    }, []);
+  useEffect(() => {
+    getOrders();
+  }, []);
 
   const setStatusHandler = (id, status) => {
     const data = {
@@ -100,11 +100,9 @@ export default function OrderManagement(props) {
       <Table size="small" className="Orders">
         <TableHead id="table-head">
           <TableRow>
+            <TableCell>Order Number</TableCell>
             <TableCell>Date</TableCell>
-            <TableCell>User</TableCell>
-            <TableCell>Products</TableCell>
             <TableCell>Amount</TableCell>
-            <TableCell>Remarks</TableCell>
             <TableCell>Order Status</TableCell>
           </TableRow>
         </TableHead>
@@ -112,11 +110,11 @@ export default function OrderManagement(props) {
           {data &&
             data.map((row) => (
               <TableRow key={row.id}>
-                <TableCell>{row.date}</TableCell>
-                <TableCell>{row.user}</TableCell>
-                <TableCell>{row.products}</TableCell>
-                <TableCell>{`$${row.price}`}</TableCell>
-                <TableCell>{row.description}</TableCell>
+                <TableCell>{row.id}</TableCell>
+                <TableCell>
+                  {new Date(row.createdDate).toLocaleDateString()}
+                </TableCell>
+                <TableCell>{`$${row.amount}`}</TableCell>
                 <TableCell>
                   <Select
                     fullWidth

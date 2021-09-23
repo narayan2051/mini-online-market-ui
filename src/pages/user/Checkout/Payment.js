@@ -1,15 +1,15 @@
-import React, { useState } from "react";
-import "./Payment.css";
-import CheckoutProduct from "./CheckoutProduct";
-import { Link, useHistory } from "react-router-dom";
+import { Container, TextField } from "@material-ui/core";
+import React from "react";
 import { useForm } from "react-hook-form";
-import {
-  getBasketTotal,
-  useCartDispatch,
-  useCartState,
-} from "../../../context/CartContext";
+import { Link, useHistory } from "react-router-dom";
 import HTTPClient, { ORDER_URL } from "../../../api/api";
-import { Container, TextareaAutosize, TextField } from "@material-ui/core";
+import {
+    getBasketTotal,
+    useCartDispatch,
+    useCartState
+} from "../../../context/CartContext";
+import CheckoutProduct from "./CheckoutProduct";
+import "./Payment.css";
 
 function Payment() {
   const history = useHistory();
