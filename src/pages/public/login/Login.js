@@ -45,10 +45,10 @@ export default function LoginForm(props) {
   }, []);
 
   const onSubmit = data => {
-  //  setIsLoading(true);
+    //  setIsLoading(true);
     HTTPClient.post(API_URL.login, data)
       .then(response => {
-       // setIsLoading(false);
+        // setIsLoading(false);
         let jsondata = response.data;
         if (jsondata.type === SUCCESS) {
           Cookies.writeCookie("auth",response.data.token);
@@ -121,19 +121,19 @@ export default function LoginForm(props) {
             />
             <Grid item xs={12} className={classes.loginBtnContainer}>
               {isLoading ? (
-                  ""
+                ""
               ) : (
-                  <Button
-                    endIcon={<ExitToAppIcon />}
-                    size="large"
-                    fullWidth
-                    color="primary"
-                    variant="contained"
-                    type="submit"
-                  >
-                    साइन इन गर्नुहोस्
-                  </Button>
-                )}
+                <Button
+                  endIcon={<ExitToAppIcon />}
+                  size="large"
+                  fullWidth
+                  color="primary"
+                  variant="contained"
+                  type="submit"
+                >
+                  Sign In
+                </Button>
+              )}
             </Grid>
           </form>
         </CardContent>
@@ -145,7 +145,7 @@ export default function LoginForm(props) {
           color="textSecondary"
           className={classes["forget-password-label"]}
         >
-          पासवर्ड बिर्सनु भयो ?
+          Forgot Password?
         </Link>
       </Box>
     </Container>
