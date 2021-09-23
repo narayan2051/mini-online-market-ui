@@ -123,7 +123,7 @@ export default function App() {
             />
             <Route
               exact
-              path="/user/singleorder/"
+              path="/user/singleorder"
               component={SingleOrder}
               isPrivate
             />

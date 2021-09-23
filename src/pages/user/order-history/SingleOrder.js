@@ -1,47 +1,21 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import "./OrderHistory.css";
-import Button from "@mui/material/Button";
-import EditOffIcon from "@mui/icons-material/EditOff";
-import {
-  IconButton,
-  Paper,
-  Table,
-  TableBody,
-  TableCell,
-  TableContainer,
-  TableHead,
-  TableRow,
-  TextField,
-} from "@mui/material";
-import { Container } from "@material-ui/core";
+import { Button, Container, Paper, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, TextField } from "@material-ui/core";
+import { EditOutlined } from "@material-ui/icons";
+import { AppUtils } from "../../../utils/appUtils";
+import HTTPClient, { ORDER_URL } from "../../../api/api";
 
 function SingleOrder() {
-  const orderDetails = {
-    orderId: 1,
-    productList: [
-      {
-        productId: 101,
-        name: "Dell",
-        price: 888,
-        qty: 1,
-        review: "Good Laptop",
-      },
-      {
-        productId: 102,
-        name: "Iphone13",
-        price: 1700,
-        qty: 1,
-        review: "Good Phone",
-      },
-      {
-        productId: 103,
-        name: "Air pod",
-        price: 80,
-        qty: 1,
-        review: "Nice Bass",
-      },
-    ],
-  };
+  const [productList, setProductList] = useState([]);
+  const orderId = AppUtils.getUrlParam("id");
+  useEffect(() => {
+    HTTPClient.get(ORDER_URL + "/" + AppUtils.getUrlParam("id"))
+      .then((response) => {
+        setProductList(response.data.productList);
+      })
+      .catch((err) => {});
+  });
+  console.log(productList);
   const updateReview = (orderId, productId) => {};
 
   return (
@@ -62,16 +36,16 @@ function SingleOrder() {
               </TableRow>
             </TableHead>
             <TableBody>
-              {orderDetails.productList.map((row) => {
+              {productList.map((row) => {
                 return (
                   <TableRow key={row.productId}>
                     <TableCell component="th" scope="row">
-                      {orderDetails.orderId}
+                      {orderId}
                     </TableCell>
-                    <TableCell align="right">{row.productId}</TableCell>
-                    <TableCell align="right">{row.name}</TableCell>
+                    <TableCell align="right">{row.id}</TableCell>
+                    <TableCell align="right">{row.title}</TableCell>
                     <TableCell align="right">{row.price}</TableCell>
-                    <TableCell align="right">{row.qty}</TableCell>
+                    <TableCell align="right">{row.quantity}</TableCell>
                     <TableCell align="right">
                       <TextField
                         id="outlined-multiline-static"
@@ -84,10 +58,10 @@ function SingleOrder() {
                         color="warning"
                         variant="outlined"
                         onClick={() =>
-                          updateReview(orderDetails.orderId, row.productId)
+                          updateReview(orderId, row.productId)
                         }
                       >
-                        <EditOffIcon />
+                        <EditOutlined />
                         Submit
                       </Button>
                     </TableCell>

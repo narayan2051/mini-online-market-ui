@@ -83,7 +83,7 @@ const OrderHistory = () => {
           {data &&
             data.map((row) => (
               <TableRow key={row.id}>
-                <TableCell>{row.id}</TableCell>
+                <TableCell> <a href={`singleorder?id=` + row.id}>{row.id}</a></TableCell>
                 <TableCell>
                   {new Date(row.createdDate).toLocaleDateString()}
                 </TableCell>
