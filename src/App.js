@@ -14,6 +14,7 @@ import Login from "./pages/public/login/Login";
 import NotAuthorized from "./pages/public/not-authorized/NotAuthorized";
 import GlobalPageNotFound from "./pages/public/not-found/GlobalPageNotFound";
 import UserDashboard from "./pages/user/dashboard/Dashboard";
+import UserProfile from "./pages/user/user-profile/UserProfile";
 import Route from "./routes/Route";
 import history from "./services/history";
 
@@ -26,15 +27,49 @@ export default function App() {
         <Layout>
           <Switch>
             <Route exact path="/" component={Login} />
-            <Route exact path="/page-not-found" component={GlobalPageNotFound} isWrongLink />
-            <Route exact path="/user-not-authorized" component={NotAuthorized} />
-                
-            <Route exact path="/user/dashboard" component={UserDashboard} isPrivate />
-            <Route exact path="/seller/dashboard" component={SellerDashboard} isPrivate/>
-            <Route exact path="/admin/dashboard" component={AdminDashboard} isPrivate />
-            <Route exact path="/admin/product-review" component={ProductReview} isPrivate />
-            <Route exact path="/admin/users" component={Users} isPrivate />
+            <Route
+              exact
+              path="/page-not-found"
+              component={GlobalPageNotFound}
+              isWrongLink
+            />
+            <Route
+              exact
+              path="/user-not-authorized"
+              component={NotAuthorized}
+            />
 
+            <Route
+              exact
+              path="/user/dashboard"
+              component={UserDashboard}
+              isPrivate
+            />
+            <Route
+              exact
+              path="/seller/dashboard"
+              component={SellerDashboard}
+              isPrivate
+            />
+            <Route
+              exact
+              path="/admin/dashboard"
+              component={AdminDashboard}
+              isPrivate
+            />
+            <Route
+              exact
+              path="/admin/product-review"
+              component={ProductReview}
+              isPrivate
+            />
+            <Route exact path="/admin/users" component={Users} isPrivate />
+            <Route
+              exact
+              path="/user/user-profile"
+              component={UserProfile}
+              isPrivate
+            />
             <Route component={GlobalPageNotFound} isWrongLink />
           </Switch>
         </Layout>
