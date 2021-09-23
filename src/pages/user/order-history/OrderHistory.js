@@ -18,7 +18,7 @@ const OrderHistory = () => {
 
   // @TODO: user reducers and state
   const getOrders = () => {
-    HTTPClient.get(ORDER_URL)
+    HTTPClient.get(ORDER_URL+"/userSpecific")
       .then((response) => {
         setData(response.data);
       })
@@ -68,6 +68,18 @@ const OrderHistory = () => {
     });
   };
 
+  const setStatusHandler = (id, status) => {
+    const data = {
+      orderId: id,
+      status,
+    };
+    HTTPClient.post(ORDER_URL + "/orderstatus", data)
+      .then((response) => {
+        getOrders();
+      })
+      .catch((err) => console.log(err.message));
+  };
+
   return (
     <Container maxWidth="sm" id="capture">
       <Title>All Orders</Title>
@@ -94,7 +106,15 @@ const OrderHistory = () => {
                   {new Date(row.createdDate).toLocaleDateString()}
                 </TableCell>
                 <TableCell>${row.amount}</TableCell>
-                <TableCell>{row.orderStatus}</TableCell>
+                <TableCell>{row.orderStatus}
+                  {
+                    row.orderStatus === "PROCESSING" ?
+                    <button onClick={(e) => setStatusHandler(row.id, "CANCELLED")}>
+                      Cancel Order
+                    </button>
+                    : ""
+                  }
+                </TableCell>
                 <TableCell>{row.billingAddress}</TableCell>
                 <TableCell>{row.shippingAddress}</TableCell>
               </TableRow>
