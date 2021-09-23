@@ -2,9 +2,11 @@ import { Box, Container, IconButton, Paper, Table, TableBody, TableCell, TableCo
 import { Check, Close } from "@material-ui/icons";
 import * as React from "react";
 import HTTPClient, { ADMIN_USERS_URL, UPDATE_USER_STATUS } from "../../../api/api";
+import styles from "../../../components/sidebar/helpers/SidebarLink/styles";
 
 
 export default function Users() {
+    const classes = styles();
     const [users, setUsers] = React.useState([]);
     const getUsers = () => {
         HTTPClient.get(ADMIN_USERS_URL)
@@ -31,8 +33,9 @@ export default function Users() {
             .catch((err) => console.log(err.message));
     };
 
-    return <div>
-        <Container maxWidth="sm">
+   
+  return <Container maxWidth="lg" className={classes.root} disableGutters>
+       <Box textAlign="center">
             <TableContainer component={Paper}>
                 <Table sx={{ minWidth: 650 }} aria-label="simple table">
                     <TableHead>
@@ -80,7 +83,6 @@ export default function Users() {
                     </TableBody>
                 </Table>
             </TableContainer>
+            </Box>
         </Container>
-    </div>
-
 }
