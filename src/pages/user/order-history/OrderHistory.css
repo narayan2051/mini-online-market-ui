@@ -6,3 +6,10 @@
 .OrderHistory #container{
     margin-left: 100px;
 }
+
+
+div#capture{
+    margin: 0px !important;
+    padding: 0px !important;
+    width: 50%;
+}

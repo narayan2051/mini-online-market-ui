@@ -18,7 +18,7 @@ const OrderHistory = () => {
 
   // @TODO: user reducers and state
   const getOrders = () => {
-    HTTPClient.get(ORDER_URL+"/userSpecific")
+    HTTPClient.get(ORDER_URL + "/userSpecific")
       .then((response) => {
         setData(response.data);
       })
@@ -81,55 +81,87 @@ const OrderHistory = () => {
   };
 
   return (
-    <Container maxWidth="sm" id="capture">
-      <Title>All Orders</Title>
-      <Table size="small" className="Orders">
-        <TableHead id="table-head">
-          <TableRow>
-            <TableCell>Order Number</TableCell>
-            <TableCell>Date</TableCell>
-            <TableCell>Amount</TableCell>
-            <TableCell>Order Status</TableCell>
-            <TableCell>Billing Address</TableCell>
-            <TableCell>Shipping Adress</TableCell>
-          </TableRow>
-        </TableHead>
-        <TableBody>
-          {data &&
-            data.map((row) => (
-              <TableRow key={row.id}>
-                <TableCell>
-                  {" "}
-                  <a href={`singleorder?id=` + row.id}>{row.id}</a>
-                </TableCell>
-                <TableCell>
-                  {new Date(row.createdDate).toLocaleDateString()}
-                </TableCell>
-                <TableCell>${row.amount}</TableCell>
-                <TableCell>{row.orderStatus}
-                  {
-                    row.orderStatus === "PROCESSING" ?
-                    <button onClick={(e) => setStatusHandler(row.id, "CANCELLED")}>
-                      Cancel Order
-                    </button>
-                    : ""
-                  }
-                </TableCell>
-                <TableCell>{row.billingAddress}</TableCell>
-                <TableCell>{row.shippingAddress}</TableCell>
-              </TableRow>
-            ))}
-        </TableBody>
-      </Table>
-      <div className="export_buttons">
-        <CSVLink data={csvData}>
-          <button>Export CSV</button>
-        </CSVLink>
-        <button id="btn" onClick={genereatePDF}>
-          Export PDF
-        </button>
+    <div>
+      <Container maxWidth="sm">
+        <Title>All Orders</Title>
+        <Table size="small" className="Orders">
+          <TableHead id="table-head">
+            <TableRow>
+              <TableCell>Order Number</TableCell>
+              <TableCell>Date</TableCell>
+              <TableCell>Amount</TableCell>
+              <TableCell>Order Status</TableCell>
+              <TableCell>Billing Address</TableCell>
+              <TableCell>Shipping Adress</TableCell>
+            </TableRow>
+          </TableHead>
+          <TableBody>
+            {data &&
+              data.map((row) => (
+                <TableRow key={row.id}>
+                  <TableCell>
+                    {" "}
+                    <a href={`singleorder?id=` + row.id}>{row.id}</a>
+                  </TableCell>
+                  <TableCell>
+                    {new Date(row.createdDate).toLocaleDateString()}
+                  </TableCell>
+                  <TableCell>${row.amount}</TableCell>
+                  <TableCell>{row.orderStatus}
+                    {
+                      row.orderStatus === "PROCESSING" ?
+                        <button onClick={(e) => setStatusHandler(row.id, "CANCELLED")}>
+                          Cancel Order
+                        </button>
+                        : ""
+                    }
+                  </TableCell>
+                  <TableCell>{row.billingAddress}</TableCell>
+                  <TableCell>{row.shippingAddress}</TableCell>
+                </TableRow>
+              ))}
+          </TableBody>
+        </Table>
+        <div className="export_buttons">
+          {/* <CSVLink data={csvData}>
+          <button>CSV</button>
+        </CSVLink> */}
+          <button id="btn" onClick={genereatePDF}>
+            Export PDF
+          </button>
+        </div>
+      </Container>
+      <div id="capture">
+        <Table>
+          <TableHead id="table-head">
+            <TableRow>
+              <TableCell>Order Number</TableCell>
+              <TableCell>Date</TableCell>
+              <TableCell>Amount</TableCell>
+              <TableCell>Order Status</TableCell>
+              <TableCell>Billing Address</TableCell>
+              <TableCell>Shipping Adress</TableCell>
+            </TableRow>
+          </TableHead>
+          <TableBody>
+            {data &&
+              data.map((row) => (
+                <TableRow key={row.id}>
+                  <TableCell>{row.id}                  </TableCell>
+                  <TableCell>
+                    {new Date(row.createdDate).toLocaleDateString()}
+                  </TableCell>
+                  <TableCell>${row.amount}</TableCell>
+                  <TableCell>{row.orderStatus}
+                  </TableCell>
+                  <TableCell>{row.billingAddress}</TableCell>
+                  <TableCell>{row.shippingAddress}</TableCell>
+                </TableRow>
+              ))}
+          </TableBody>
+        </Table>
       </div>
-    </Container>
+      </div>
   );
 };
 
