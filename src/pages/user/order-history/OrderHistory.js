@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
-// import jsPDF from "jspdf";
-// import html2canvas from "html2canvas";
+import jsPDF from "jspdf";
+import html2canvas from "html2canvas";
 
 import HTTPClient, { ORDER_URL, PRODUCT_URL } from "../../../api/api";
 import { Link } from "react-router-dom";
@@ -23,7 +23,7 @@ import {
   Store,
   Title,
 } from "@material-ui/icons";
-// import { CSVLink } from "react-csv";
+import { CSVLink } from "react-csv";
 
 
 // html2PDF(node, options);
@@ -45,28 +45,36 @@ const OrderHistory = () => {
 
   console.log(data)
 
-  const csvData = [
-    ["firstname", "lastname", "email"],
-    ["Ahmed", "Tomi", "ah@smthing.co.com"],
-    ["Raed", "Labes", "rl@smthing.co.com"],
-    ["Yezzi", "Min l3b"],
-  ];
+  const csvData = [["Order No", "Date", "Amount", "Status", "Billing Addres", "Shipping Address"]];
+
+  data &&
+    data.map((row) => csvData.push([
+      row.id,
+      row.createdDate,
+      row.amount,
+      row.orderStatus,
+      row.billingAddress,
+      row.shippingAddress
+    ])
+    )
+
+  console.log(csvData)
 
   const genereatePDF = () => {
-    // var doc = new jsPDF("p", "pt", "a4");
+    var doc = new jsPDF("p", "pt", "a4");
 
-    // doc.html(document.querySelector("#capture"), {
-    //   callback: function (pdf) {
-    //     // html2canvas(document.querySelector("#capture")).then((canvas) => {
-    //       pdf.save("download.pdf");
-    //     // });
-    //   },
-    // });
+    doc.html(document.querySelector("#capture"), {
+      callback: function (pdf) {
+        // html2canvas(document.querySelector("#capture")).then((canvas) => {
+          pdf.save("download.pdf");
+        // });
+      },
+    });
   };
 
-  
+
   return (
-    <Container maxWidth="sm">
+    <Container maxWidth="sm" id="capture">
       <Title>All Orders</Title>
       <Table size="small" className="Orders">
         <TableHead id="table-head">
@@ -95,30 +103,16 @@ const OrderHistory = () => {
             ))}
         </TableBody>
       </Table>
+      <div className="export_buttons">
+        <CSVLink data={csvData}>
+          <button>CSV</button>
+        </CSVLink>
+        <button id="btn" onClick={genereatePDF}>
+          PDF
+        </button>
+      </div>
     </Container>
   );
-  //     <div id="capture">
-  //       <div>
-  //         <div>Order Id: #111</div>
-  //         <div>Order status : Delivered</div>
-  //         <div>Shipping Address : ada dashboard adasd</div>
-  //         <div>Billing Address : ada dashboard adasd</div>
-  //         <div>Amount : $111</div>
-  //         <div>Seller: Bipin Karki</div>
-  //         <div>{/* <SingleProduct /> */}</div>
-  //       </div>
-  //     </div>
-  //     <div className="export_buttons">
-  //       {/* <CSVLink data={csvData}>
-  //         <button>CSV</button>
-  //       </CSVLink> */}
-  //       <button id="btn" onClick={genereatePDF}>
-  //         PDF
-  //       </button>
-  //     </div>
-  //     <Container maxWidth="sm">OrderHistory</Container>
-  //   </div>
-  
 };
 
 export default OrderHistory;
