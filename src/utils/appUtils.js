@@ -9,6 +9,7 @@ export const AppUtils = {
   },
   removeUserRef() {
     Cookies.deleteCookie(USER_ROLE);
+    Cookies.deleteCookie("auth");
     Cookies.deleteCookie(REMEMBER_ME);
     SessionStorage.clear();
     LocalStorage.clear();
@@ -26,26 +27,5 @@ export const AppUtils = {
           : decodeURIComponent(paramName[1]);
       }
     }
-  },
-  replaceWithNepaliDigit(number) {
-    var numbers = {
-      0: '०',
-      1: '१',
-      2: '२',
-      3: '३',
-      4: '४',
-      5: '५',
-      6: '६',
-      7: '७',
-      8: '८',
-      9: '९'
-    };
-    var arrNumNepali = number.toString().split('').map(function (char) {
-      if (isNaN(parseInt(char))) {
-        return char
-      }
-      return numbers[Number(char)];
-    });
-    return arrNumNepali.join('');
-  },
+  }
 };

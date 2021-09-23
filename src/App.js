@@ -16,7 +16,7 @@ import AddProduct from "./pages/seller/add-product/AddProduct";
 import SellerDashboard from "./pages/seller/dashboard/SellerDashboard";
 import Checkout from "./pages/user/Checkout/Checkout";
 import Payment from "./pages/user/Checkout/Payment";
-// import Payment from "./pages/user/Checkout/Payment";
+import OrderManagement from "./pages/seller/order-manage/OrderManagement";
 import UserDashboard from "./pages/user/dashboard/Dashboard";
 import Products from "./pages/user/products/Products";
 import Route from "./routes/Route";
@@ -40,6 +40,9 @@ export default function App() {
             <Route exact path="/user/payment" component={Payment} isPrivate />
             <Route exact path="/seller/dashboard" component={SellerDashboard} isPrivate />
             <Route exact path="/seller/add-product" component={AddProduct} isPrivate />
+            <Route exact path="/seller/dashboard" component={SellerDashboard} isPrivate/>
+            <Route exact path="/seller/add-product" component={AddProduct} isPrivate/>
+            <Route exact path="/seller/order-management" component={OrderManagement} isPrivate/>
             <Route exact path="/admin/dashboard" component={AdminDashboard} isPrivate />
             <Route exact path="/admin/product-review" component={ProductReview} isPrivate />
             <Route exact path="/admin/users" component={Users} isPrivate />
