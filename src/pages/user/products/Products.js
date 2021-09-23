@@ -1,30 +1,42 @@
-import React, { useEffect, useState } from "react";
+import { Container } from "@material-ui/core";
+import React, { useEffect } from "react";
 import HTTPClient, { PRODUCT_URL } from "../../../api/api";
+import styles from "../../../components/sidebar/helpers/SidebarLink/styles";
+
 import Product from "../product/Product";
+import "./Products.css"
 
 export default function Products() {
-  const [data, setData] = useState();
+  const classes = styles();
+  const [products, setProducts] = React.useState([]);
   // @TODO: user reducers and state
-  useEffect(() => {
+  const getProducts = () => {
     HTTPClient.get(PRODUCT_URL)
       .then((response) => {
-        setData(response.data);
+        // console.log(response.data);
+        setProducts(response.data);
       })
       .catch((err) => console.log(err.message));
+  };
+  React.useEffect(() => {
+    getProducts();
   }, []);
-  const productList =
-    data &&
-    data.map((item) => {
-      // console.log(item);
-      return (
-        <Product
-          id={item.id}
-          title={item.title}
-          price={item.price}
-          description={item.description}
-        />
-      );
-    });
 
-  return <div className="Products">{productList}</div>;
+  const productList = products && products.map(
+    (item) => {
+      return <Product
+        key={item.id}
+        id={item.id}
+        title={item.title}
+        price={item.price}
+        description={item.description}
+      />
+    }
+  );
+
+  return <Container maxWidth="lg" className={classes.root} disableGutters>
+    <div className="Products">
+      {productList}
+    </div>
+  </Container>
 }

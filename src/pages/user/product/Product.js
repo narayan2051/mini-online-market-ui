@@ -1,7 +1,10 @@
+import { Container } from "@material-ui/core";
 import React from "react";
+import styles from "../../../components/sidebar/helpers/SidebarLink/styles";
 
 
-export default function Product(id, title, price, description) {
+export default function Product(data) {
+  const classes = styles();
   //   const [{ basket }, dispatch] = useStateValue();
   //   console.log("here");
   //   const addToBasket = () => {
@@ -17,20 +20,22 @@ export default function Product(id, title, price, description) {
   //     });
   //   };
 
-  return (
-    <div className="product">
+
+  return (<div className="product" key={data.id}>
+    <Container maxWidth="lg" className={classes.root} disableGutters>
       <div className="product__info">
-        <p> {title} </p>
+        <p> {data.title} </p>
+        <p>dasda</p>
         <p className="product__price">
           <small>$</small>
-          <strong>{price}</strong>
+          <strong>{data.price}</strong>
         </p>
         <div className="product__description">
-          <p>{description}</p>
+          <p>{data.description}</p>
         </div>
       </div>
 
       <button className="fade">Add to Basket</button>
-    </div>
-  );
+      </Container>
+    </div>);
 }
