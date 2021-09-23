@@ -1,22 +1,52 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import "./OrderHistory.css";
-import { Button, Container, Paper, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, TextField } from "@material-ui/core";
-import { EditOutlined } from "@material-ui/icons";
+import {
+  Button,
+  Container,
+  Paper,
+  Table,
+  TableBody,
+  TableCell,
+  TableContainer,
+  TableHead,
+  TableRow,
+  TextField,
+} from "@material-ui/core";
+
 import { AppUtils } from "../../../utils/appUtils";
-import HTTPClient, { ORDER_URL } from "../../../api/api";
+import HTTPClient, { ORDER_URL, PRODUCT_URL } from "../../../api/api";
 
 function SingleOrder() {
   const [productList, setProductList] = useState([]);
   const orderId = AppUtils.getUrlParam("id");
+  const reviewRef = useRef(null);
   useEffect(() => {
     HTTPClient.get(ORDER_URL + "/" + AppUtils.getUrlParam("id"))
       .then((response) => {
         setProductList(response.data.productList);
       })
       .catch((err) => {});
-  });
-  console.log(productList);
-  const updateReview = (orderId, productId) => {};
+  }, []);
+  //console.log(productList);
+  const updateReview = (productId) => {
+    const data = {
+      productId,
+      reviewText: reviewRef.current.value,
+    };
+    HTTPClient.post(PRODUCT_URL, data)
+      .then((response) => console.log(response))
+      .catch((err) => console.log(err));
+  };
+
+  // const changeReviewHandler = (e, productId) => {
+  //   productList.map((product) => {
+  //     if (product.id === productId) {
+  //       return { ...product, reviewText: e.target.value };
+  //     } else {
+  //       return product;
+  //     }
+  //   });
+  // };
 
   return (
     <div className="OrderHistory">
@@ -38,7 +68,7 @@ function SingleOrder() {
             <TableBody>
               {productList.map((row) => {
                 return (
-                  <TableRow key={row.productId}>
+                  <TableRow key={row.id}>
                     <TableCell component="th" scope="row">
                       {orderId}
                     </TableCell>
@@ -50,18 +80,17 @@ function SingleOrder() {
                       <TextField
                         id="outlined-multiline-static"
                         multiline
-                        defaultValue={row.review}
+                        // onChange={(e) => changeReviewHandler(e, row.productId)}
+                        ref={reviewRef}
                       />
                     </TableCell>
                     <TableCell>
                       <Button
                         color="warning"
                         variant="outlined"
-                        onClick={() =>
-                          updateReview(orderId, row.productId)
-                        }
+                        onClick={(e) => updateReview(row.productId)}
                       >
-                        <EditOutlined />
+                        {/* <EditOff /> */}
                         Submit
                       </Button>
                     </TableCell>
