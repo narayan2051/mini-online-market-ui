@@ -8,8 +8,9 @@ import {
   FormControlLabel,
   Grid,
   Link,
-  TextField
+  TextField,
 } from "@material-ui/core";
+import { Add } from "@material-ui/icons";
 import ExitToAppIcon from "@material-ui/icons/ExitToApp";
 import React, { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
@@ -17,7 +18,17 @@ import HTTPClient, { API_URL } from "../../../api/api";
 import logo from "../../../assets/img/logo.png";
 import AddAlertMessage from "../../../components/alert/Alert";
 import { useUserDispatch } from "../../../context/UserContext";
-import { ENTER_VALID_EMAIL, IS_SESSION_EXPIRED, LOGIN_FAILURE, LOGIN_SUCCESS, REQUIRED_FIELD, SESSION_EXPIRED, SOMETHING_WENT_WRONG, SUCCESS, USER_ROLE } from "../../../utils/constants/index";
+import {
+  ENTER_VALID_EMAIL,
+  IS_SESSION_EXPIRED,
+  LOGIN_FAILURE,
+  LOGIN_SUCCESS,
+  REQUIRED_FIELD,
+  SESSION_EXPIRED,
+  SOMETHING_WENT_WRONG,
+  SUCCESS,
+  USER_ROLE,
+} from "../../../utils/constants/index";
 import { Cookies } from "../../../utils/storage/cookies";
 import { SessionStorage } from "../../../utils/storage/sessionStorage";
 import styles from "./style";
@@ -36,21 +47,23 @@ export default function LoginForm(props) {
     if (SessionStorage.getItem(IS_SESSION_EXPIRED) === "true") {
       AddAlertMessage({
         type: "error",
-        message: SESSION_EXPIRED
+        message: SESSION_EXPIRED,
       });
       SessionStorage.removeItem(IS_SESSION_EXPIRED);
     }
   }, []);
 
-  const onSubmit = data => {
+  const onSubmit = (data) => {
     HTTPClient.post(API_URL.login, data)
-      .then(response => {
+      .then((response) => {
         let jsondata = response.data;
         if (jsondata.type === SUCCESS) {
-          Cookies.writeCookie("auth",response.data.token);
-          Cookies.writeCookie("role",response.data.role);
+          Cookies.writeCookie("auth", response.data.token);
+          Cookies.writeCookie("role", response.data.role);
           let userRole = Cookies.readCookie(USER_ROLE);
-          !userRole && jsondata.data && Cookies.writeCookie(USER_ROLE, jsondata.data, 6 * 24);
+          !userRole &&
+            jsondata.data &&
+            Cookies.writeCookie(USER_ROLE, jsondata.data, 6 * 24);
           userDispatch({ type: LOGIN_SUCCESS });
           props.history.push("/");
         } else {
@@ -58,7 +71,7 @@ export default function LoginForm(props) {
           AddAlertMessage({ type: jsondata.type, message: jsondata.message });
         }
       })
-      .catch(error => {
+      .catch((error) => {
         setIsLoading(false);
         AddAlertMessage({ type: "error", message: SOMETHING_WENT_WRONG });
         userDispatch({ type: LOGIN_FAILURE });
@@ -85,11 +98,15 @@ export default function LoginForm(props) {
                 name="username"
                 inputRef={register({
                   required: true,
-                  pattern: /\S+@\S+\.\S+/
+                  pattern: /\S+@\S+\.\S+/,
                 })}
               />
-              {errors.userEmail && errors.userEmail.type === "required" && (<span className="error-message">{REQUIRED_FIELD}</span>)}
-              {errors.userEmail && errors.userEmail.type === "pattern" && (<span className="error-message">{ENTER_VALID_EMAIL}</span>)}
+              {errors.userEmail && errors.userEmail.type === "required" && (
+                <span className="error-message">{REQUIRED_FIELD}</span>
+              )}
+              {errors.userEmail && errors.userEmail.type === "pattern" && (
+                <span className="error-message">{ENTER_VALID_EMAIL}</span>
+              )}
             </Grid>
             <Grid item xs={12}>
               <TextField
@@ -102,7 +119,7 @@ export default function LoginForm(props) {
                 variant="outlined"
                 name="password"
                 inputRef={register({
-                  required: true
+                  required: true,
                 })}
               />
               {errors.password && (
@@ -119,17 +136,17 @@ export default function LoginForm(props) {
               {isLoading ? (
                 ""
               ) : (
-                  <Button
-                    endIcon={<ExitToAppIcon />}
-                    size="large"
-                    fullWidth
-                    color="primary"
-                    variant="contained"
-                    type="submit"
-                  >
-                    Login
-                  </Button>
-                )}
+                <Button
+                  endIcon={<ExitToAppIcon />}
+                  size="large"
+                  fullWidth
+                  color="primary"
+                  variant="contained"
+                  type="submit"
+                >
+                  Login
+                </Button>
+              )}
             </Grid>
           </form>
         </CardContent>
@@ -141,9 +158,21 @@ export default function LoginForm(props) {
           color="textSecondary"
           className={classes["forget-password-label"]}
         >
-         Forget Password ?
+          Forget Password ?
         </Link>
       </Box>
+      <Grid item xs={12} className={classes.loginBtnContainer}>
+        <Button
+          endIcon={<Add />}
+          size="large"
+          fullWidth
+          color="success"
+          variant="contained"
+          type="submit"
+        >
+          Sign Up
+        </Button>
+      </Grid>
     </Container>
   );
 }

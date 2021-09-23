@@ -110,7 +110,9 @@ export default function OrderManagement(props) {
           {data &&
             data.map((row) => (
               <TableRow key={row.id}>
-                <TableCell>{row.id}</TableCell>
+                <TableCell>
+                  <a href={`orderDetail?number=` + row.id}>{row.id}</a>
+                </TableCell>
                 <TableCell>
                   {new Date(row.createdDate).toLocaleDateString()}
                 </TableCell>
