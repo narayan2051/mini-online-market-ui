@@ -1,0 +1,72 @@
+// All mixins must be placed here
+@mixin transition($args...) {
+  -webkit-transition: $args;
+  -moz-transition: $args;
+  -ms-transition: $args;
+  -o-transition: $args;
+  transition: $args;
+}
+
+@mixin linearGradient($start-color, $end-color) {
+  background: $end-color;
+  background: -moz-linear-gradient(top, $start-color 0%, $end-color 100%);
+  background: -webkit-gradient(
+    linear,
+    left top,
+    left bottom,
+    color-stop(0%, $start-color),
+    color-stop(100%, $end-color)
+  );
+  background: -webkit-linear-gradient(top, $start-color 0%, $end-color 100%);
+  background: -o-linear-gradient(top, $start-color 0%, $end-color 100%);
+  background: linear-gradient(to bottom, $start-color 0%, $end-color 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0, startColorstr=#{$start-color}, endColorstr=#{$end-color});
+}
+
+@mixin body-loader($activeColor: $pink, $selector: "&::before", $time: 1.5s) {
+  animation-play-state: running;
+  @keyframes spinner {
+    0% {
+      transform: translate3d(-50%, -50%, 0) rotate(0deg);
+    }
+
+    100% {
+      transform: translate3d(-50%, -50%, 0) rotate(360deg);
+    }
+  }
+
+  &.-paused {
+    animation-play-state: paused;
+    opacity: 0.2;
+    transition: opacity linear 0.1s;
+  }
+
+  #{$selector} {
+    animation: $time linear infinite spinner;
+    animation-play-state: inherit;
+    border: solid 3px $white;
+    border-bottom-color: #{$activeColor};
+    border-radius: 50%;
+    content: "";
+    z-index: 1302;
+    height: 40px;
+    left: 50%;
+    opacity: inherit;
+    position: fixed;
+    top: 50%;
+    transform: translate3d(-50%, -50%, 0);
+    width: 40px;
+    will-change: transform;
+  }
+  &::after {
+    animation-play-state: inherit;
+    position: fixed;
+    content:"";
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    z-index: 1301;
+    background: lighten($primary, 8);
+  }
+}
