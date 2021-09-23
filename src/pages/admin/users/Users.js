@@ -1,20 +1,15 @@
 import {
-  Box,
   Container,
-  IconButton,
-  Paper,
-  Table,
+  IconButton, Table,
   TableBody,
-  TableCell,
-  TableContainer,
-  TableHead,
-  TableRow,
+  TableCell, TableHead,
+  TableRow
 } from "@material-ui/core";
 import { Check, Close } from "@material-ui/icons";
 import * as React from "react";
 import HTTPClient, {
   ADMIN_USERS_URL,
-  UPDATE_USER_STATUS,
+  UPDATE_USER_STATUS
 } from "../../../api/api";
 
 export default function Users() {

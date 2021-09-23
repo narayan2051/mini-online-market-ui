@@ -8,7 +8,7 @@ import {
   FormControlLabel,
   Grid,
   Link,
-  TextField,
+  TextField
 } from "@material-ui/core";
 import { Add } from "@material-ui/icons";
 import ExitToAppIcon from "@material-ui/icons/ExitToApp";
@@ -27,7 +27,7 @@ import {
   SESSION_EXPIRED,
   SOMETHING_WENT_WRONG,
   SUCCESS,
-  USER_ROLE,
+  USER_ROLE
 } from "../../../utils/constants/index";
 import { Cookies } from "../../../utils/storage/cookies";
 import { SessionStorage } from "../../../utils/storage/sessionStorage";

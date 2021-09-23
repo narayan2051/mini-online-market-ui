@@ -1,30 +1,16 @@
-import React, { useState, useEffect } from "react";
-import jsPDF from "jspdf";
-import html2canvas from "html2canvas";
-
-import HTTPClient, { ORDER_URL, PRODUCT_URL } from "../../../api/api";
-import { Link } from "react-router-dom";
 import {
-  Button,
   Container,
-  MenuItem,
-  Select,
   Table,
   TableBody,
   TableCell,
   TableHead,
   TableRow,
 } from "@material-ui/core";
-import {
-  Block,
-  Cached,
-  DirectionsBoat,
-  LocalShipping,
-  Store,
-  Title,
-} from "@material-ui/icons";
+import { Title } from "@material-ui/icons";
+import jsPDF from "jspdf";
+import React, { useEffect, useState } from "react";
 import { CSVLink } from "react-csv";
-
+import HTTPClient, { ORDER_URL } from "../../../api/api";
 
 // html2PDF(node, options);
 const OrderHistory = () => {
@@ -43,22 +29,32 @@ const OrderHistory = () => {
     getOrders();
   }, []);
 
-  console.log(data)
+  console.log(data);
 
-  const csvData = [["Order No", "Date", "Amount", "Status", "Billing Addres", "Shipping Address"]];
+  const csvData = [
+    [
+      "Order No",
+      "Date",
+      "Amount",
+      "Status",
+      "Billing Addres",
+      "Shipping Address",
+    ],
+  ];
 
   data &&
-    data.map((row) => csvData.push([
-      row.id,
-      row.createdDate,
-      row.amount,
-      row.orderStatus,
-      row.billingAddress,
-      row.shippingAddress
-    ])
-    )
+    data.map((row) =>
+      csvData.push([
+        row.id,
+        row.createdDate,
+        row.amount,
+        row.orderStatus,
+        row.billingAddress,
+        row.shippingAddress,
+      ])
+    );
 
-  console.log(csvData)
+  console.log(csvData);
 
   const genereatePDF = () => {
     var doc = new jsPDF("p", "pt", "a4");
@@ -66,12 +62,11 @@ const OrderHistory = () => {
     doc.html(document.querySelector("#capture"), {
       callback: function (pdf) {
         // html2canvas(document.querySelector("#capture")).then((canvas) => {
-          pdf.save("download.pdf");
+        pdf.save("download.pdf");
         // });
       },
     });
   };
-
 
   return (
     <Container maxWidth="sm" id="capture">
@@ -91,7 +86,10 @@ const OrderHistory = () => {
           {data &&
             data.map((row) => (
               <TableRow key={row.id}>
-                <TableCell> <a href={`singleorder?id=` + row.id}>{row.id}</a></TableCell>
+                <TableCell>
+                  {" "}
+                  <a href={`singleorder?id=` + row.id}>{row.id}</a>
+                </TableCell>
                 <TableCell>
                   {new Date(row.createdDate).toLocaleDateString()}
                 </TableCell>
@@ -105,10 +103,10 @@ const OrderHistory = () => {
       </Table>
       <div className="export_buttons">
         <CSVLink data={csvData}>
-          <button>CSV</button>
+          <button>Export CSV</button>
         </CSVLink>
         <button id="btn" onClick={genereatePDF}>
-          PDF
+          Export PDF
         </button>
       </div>
     </Container>
