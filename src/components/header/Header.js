@@ -97,7 +97,7 @@ export default function Header(props) {
           />
         </IconButton>
 
-        <img src={logo} alt="HMIS" width="36"></img>
+        <img src={logo} alt="MOM" width="36"></img>
         <Typography variant="h6" className={classes.brand}>
           Online Mini Market
         </Typography>

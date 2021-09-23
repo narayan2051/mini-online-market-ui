@@ -1,5 +1,5 @@
 import { Box, Tooltip } from '@material-ui/core';
-import HMIS, { API_URL } from "../api/api";
+import HTTPClient, { API_URL } from "../api/api";
 import { AppUtils } from "../utils/appUtils";
 import { AGE_UNITS, ICD_CODE_OPTIONS, MAJOR_CLASSIFICATIONS_FOR_BELOW_TWO_MONTH, MAJOR_CLASSIFICATIONS_FOR_ABOVE_TWO_MONTH } from "../utils/constants/forms";
 import { ALL_ROLES, CASTE_CODES, GENDER_OPTIONS, PALIKA_TYPES, PROVINCE_DISTRICT_PALIKA_LIST } from "../utils/constants/index";
@@ -64,7 +64,7 @@ export const AppMisc = {
 
   getAllDartaaNumberOptions(showPatientName) {
     var mulDartaaOptions = [];
-    HMIS.get(API_URL.mulDartaaRegister + "/mul-dartaa-numbers")
+    HTTPClient.get(API_URL.mulDartaaRegister + "/mul-dartaa-numbers")
       .then(response => {
         var data = response.data;
         data.forEach(item => {

@@ -2,6 +2,7 @@ import { Box, IconButton, Table, TableBody, TableCell, TableContainer, TableHead
 import { Print } from "@material-ui/icons";
 import React, { useEffect, useRef, useState } from 'react';
 import ReactToPrint from "react-to-print";
+import HTTPClient from "../../../../api/api";
 import HMIS, { API_URL } from '../../../../api/api';
 import AddAlertMessage from '../../../../components/alert/Alert';
 import { AppMisc } from '../../../../misc/appMisc';
@@ -23,7 +24,7 @@ export default function HealthServiceCard() {
   }, [])
 
   const getHealthServiceCardTableData = () => {
-    HMIS.get(API_URL.healthServiceCard + "?mulDartaaNumber=" + AppUtils.getUrlParam("mulDartaaNumber"))
+    HTTPClient.get(API_URL.healthServiceCard + "?mulDartaaNumber=" + AppUtils.getUrlParam("mulDartaaNumber"))
       .then(response => {
         if (response.data.type === SUCCESS) {
           setHealthServiceCardTableData(response.data.data)
