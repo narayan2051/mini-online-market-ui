@@ -215,7 +215,7 @@ export default function ChildrenTwoMonthsAndAbove(props) {
     setDartaaNumber("");
   }
   return (
-    <>
+    <div>
       <Box display="flex" flexDirection="row" alignItems="center" justifyContent="space-between" borderBottom={1} mb={3} pb={1}>
         <Typography variant="h5">
           दुई महिनादेखि ५ वर्षमुनिका बिरामी बच्चाहरुको व्यवस्थापन
@@ -966,7 +966,7 @@ export default function ChildrenTwoMonthsAndAbove(props) {
         </Box>
       </CustomModal>
       <ChildrenTwoMonthsAndAboveRegister tableData={mainRegisterData} showActionColumn={mainRegisterData.length !== 0} onEditRow={childrenTwoMonthsAndAboveEditFunction} villageClinicServiceDate={props.villageClinicServiceDate} />
-    </>
+    </div>
   );
 
 }

@@ -267,7 +267,7 @@ export default function MulDartaa() {
   };
 
   return (
-    <>
+    <div>
       <Box className={classes.mulDartaaRegisterContainer} display="flex" flexDirection="row" alignItems="center" justifyContent="space-between" borderBottom={1} mb={3} pb={1}>
         <Typography variant="h5">
           मूल दर्ता रजिस्टर
@@ -568,6 +568,6 @@ export default function MulDartaa() {
         </Grid>
       </CustomModal>
       <MulDartaaRegister tableData={mainRegisterData} showActionColumn={mainRegisterData.length !== 0} onEditRow={mulDartaaEditFunction.bind(this)} />
-    </>
+    </div>
   );
 }

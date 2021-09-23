@@ -239,7 +239,7 @@ export default function PatientAdmissionRegister(props) {
   }
 
   return (
-    <>
+    <div>
       <Box display="flex" flexDirection="row" alignItems="center" justifyContent="space-between" borderBottom={1} mb={3} pb={1}>
         <Typography variant="h5">
           बिरामी भर्ना रजिस्टर
@@ -632,6 +632,6 @@ export default function PatientAdmissionRegister(props) {
         </Box>
       </CustomModal>
       <PatientAdmissionDetails tableData={admissionDetails} showActionColumn={admissionDetails.length !== 0} onEditRow={admissionEditFunction.bind(this)} getAdmissionDetails={getAdmissionDetails} />
-    </>
+    </div>
   );
 }

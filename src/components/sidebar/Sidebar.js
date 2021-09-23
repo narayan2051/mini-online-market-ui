@@ -32,6 +32,7 @@ function Sidebar({ location }) {
   if (userRole === ROLE_SELLER) {
     sidebarLinks = SELLER_SIDEBAR_LINKS;
   }
+  console.log(sidebarLinks)
   
 
   return (

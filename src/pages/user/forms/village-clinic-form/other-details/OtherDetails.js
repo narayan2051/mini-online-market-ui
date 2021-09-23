@@ -78,7 +78,7 @@ export default function OtherDetails(props) {
   }
 
   return (
-    <>
+    <div>
       <Box display="flex" flexDirection="row" alignItems="center" justifyContent="space-between" borderBottom={1} mb={3} pb={1}>
         <Typography variant="h5">अन्य विवरण</Typography>
         <Box display="flex" alignItems="center">
@@ -146,6 +146,6 @@ export default function OtherDetails(props) {
         </Grid>
       </CustomModal>
       <OtherDetailsRegister tableData={tableData} defaultValues={modalDefaultValues} showActionColumn={tableData.length !== 0} onEditRow={handleEditRow.bind(this)} villageClinicServiceDate={props.villageClinicServiceDate} />
-    </>
+    </div>
   );
 }

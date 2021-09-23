@@ -239,7 +239,7 @@ export default function KhopSessionDetails() {
   }
 
   return (
-    <>
+    <div>
       <Box className={classes.khopSewaRegisterHeader} display="flex" flexDirection="row" alignItems="center" justifyContent="space-between" borderBottom={1} mb={3} pb={1}>
         <Typography variant="h5">खोप अभिलेख (बाल-बालिका)</Typography>
         {
@@ -311,6 +311,6 @@ export default function KhopSessionDetails() {
         modalDefaultValues={khopAwanchhitGhatanaModalDefaultValues}
         khopSewaList={khopSewaList}
       />
-    </>
+    </div>
   );
 }

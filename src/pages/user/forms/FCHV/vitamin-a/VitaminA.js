@@ -109,7 +109,7 @@ export default function VitaminA() {
   }
 
   return (
-    <>
+    <div>
       <Box display="flex" flexDirection="row" alignItems="center" justifyContent="space-between" borderBottom={1} mb={3} pb={1}>
         <Typography variant="h5">
           राष्ट्रिय भिटामिन ए कार्यक्रम रजिस्टर
@@ -237,6 +237,6 @@ export default function VitaminA() {
         </Grid>
       </CustomModal>
       <VitaminARegister tableData={vitaminARegisterData} showActionColumn={vitaminARegisterData.length !== 0} onEditRow={handleEditFunction} />
-    </>
+    </div>
   );
 }

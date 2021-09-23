@@ -90,7 +90,7 @@ export default function UserSetting() {
   }, []);
 
   return (
-    <>
+    <div>
       <Box className={classes.setting}>
         <Box borderBottom={1} mb={3} pb={1}>
           <Typography variant="h6">
@@ -224,6 +224,6 @@ export default function UserSetting() {
         </Box>
       </Box>
       <AddUserModal showAddUserModal={openAddUserModal} handleAddUserModalClose={closeOpenAddUserModal} onSubmit={submitAddUserModal.bind(this)} defaultValues={defaultSetting} />
-    </>
+    </div>
   );
 }

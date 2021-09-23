@@ -26,7 +26,7 @@ export default function CustomRow({ handleApprovedStatusChange, handleUnapproved
   }
 
   return (
-    <>
+    <div>
       <TableRow className={classes.root}>
         <TableCell>
           <IconButton aria-label="expand row" size="small" onClick={() => setOpen(!open)}>
@@ -105,6 +105,6 @@ export default function CustomRow({ handleApprovedStatusChange, handleUnapproved
           </Collapse>
         </TableCell>
       </TableRow>
-    </>
+    </div>
   );
 }

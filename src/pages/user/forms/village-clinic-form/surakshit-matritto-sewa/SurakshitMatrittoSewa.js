@@ -202,7 +202,7 @@ export default function SurakshitMatrittoSewa(props) {
   }
 
   return (
-    <>
+    <div>
       <Box display="flex" flexDirection="row" alignItems="center" justifyContent="space-between" borderBottom={1} mb={3} pb={1}>
         <Typography variant="h5">सुरक्षित मातृत्व सेवा</Typography>
         <Box display="flex" alignItems="center">
@@ -246,7 +246,7 @@ export default function SurakshitMatrittoSewa(props) {
               {errors.villageClinicDartaaNumber && <span className="error-message">{REQUIRED_FIELD}</span>}
             </Grid>
             {showPatientGeneralDetail && (
-              <>
+              <div>
                 <Grid item xs>
                   <TextField
                     InputProps={{ readOnly: true }}
@@ -279,11 +279,11 @@ export default function SurakshitMatrittoSewa(props) {
                   />
                   {errors.patientLastName && <span className="error-message">{REQUIRED_FIELD}</span>}
                 </Grid>
-              </>
+              </div>
             )}
           </Grid>
           {showPatientGeneralDetail && (
-            <>
+            <div>
               <Grid container spacing={2} alignItems="center" className={classes.row}>
                 <Grid item xs>
                   <CustomReactSelect
@@ -399,7 +399,7 @@ export default function SurakshitMatrittoSewa(props) {
                   />
                 </Grid>
               </Grid>
-            </>
+            </div>
           )}
           <Grid container spacing={2} alignItems="center" className={classes.row}>
             {((JSON.stringify(gravidaDetailInformation) === "{}") || gravidaDetailInformation.editable) ? (
@@ -660,6 +660,6 @@ export default function SurakshitMatrittoSewa(props) {
         </Box>
       </CustomModal>
       <SurakshitMatrittoSewaRegister tableData={registerData} showActionColumn={registerData.length !== 0} onEditRow={findPatientDetails} />
-    </>
+    </div>
   )
 }

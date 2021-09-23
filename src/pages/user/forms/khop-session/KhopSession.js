@@ -132,7 +132,7 @@ export default function KhopSessionSanchalanWiwaran(props) {
   }
 
   return (
-    <>
+    <div>
       <Box className={classes.khopSessionHeader} display="flex" flexDirection="row" alignItems="center" justifyContent="space-between" borderBottom={1} mb={3} pb={1}>
         <Typography variant="h5">
           खोप सेसनहरु
@@ -172,6 +172,6 @@ export default function KhopSessionSanchalanWiwaran(props) {
         modalDefaultValues={khopSessionModalDefaultValues}
         khopKendraOptions={khopKendraOptions}
       />
-    </>
+    </div>
   );
 }

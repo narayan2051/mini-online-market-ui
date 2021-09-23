@@ -8,6 +8,8 @@ import Layout from "./components/layout/Layout";
 import ScrollToTop from "./components/scroll-to-top/ScrollToTop";
 import SellerDashboard from "./components/seller/SellerDashboard";
 import AdminDashboard from "./pages/admin/dashboard/Dashboard";
+import ProductReview from "./pages/admin/product-review/ProductReview";
+import Users from "./pages/admin/users/Users";
 import Login from "./pages/public/login/Login";
 import NotAuthorized from "./pages/public/not-authorized/NotAuthorized";
 import GlobalPageNotFound from "./pages/public/not-found/GlobalPageNotFound";
@@ -17,7 +19,7 @@ import history from "./services/history";
 
 export default function App() {
   return (
-    <>
+    <div>
       <ReactNotification />
       <Router history={history}>
         <CssBaseline />
@@ -27,10 +29,11 @@ export default function App() {
             <Route exact path="/page-not-found" component={GlobalPageNotFound} isWrongLink />
             <Route exact path="/user-not-authorized" component={NotAuthorized} />
                 
-
             <Route exact path="/user/dashboard" component={UserDashboard} isPrivate />
             <Route exact path="/seller/dashboard" component={SellerDashboard} isPrivate/>
             <Route exact path="/admin/dashboard" component={AdminDashboard} isPrivate />
+            <Route exact path="/admin/product-review" component={ProductReview} isPrivate />
+            <Route exact path="/admin/users" component={Users} isPrivate />
 
             <Route component={GlobalPageNotFound} isWrongLink />
           </Switch>
@@ -38,6 +41,6 @@ export default function App() {
       </Router>
       <Footer />
       <ScrollToTop />
-    </>
+    </div>
   );
 }

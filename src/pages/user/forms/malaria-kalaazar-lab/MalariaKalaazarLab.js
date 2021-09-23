@@ -318,7 +318,7 @@ export default function MalariaKustharogKalaazarLab(props) {
   }
 
   return (
-    <>
+    <div>
       <Box display="flex" flexDirection="row" alignItems="center" justifyContent="space-between" borderBottom={1} mb={3} pb={1}>
         <Typography variant="h6">
           औलो, कुष्ठ र कालाजार रोगको प्रयोगशाला रजिष्टर
@@ -684,7 +684,7 @@ export default function MalariaKustharogKalaazarLab(props) {
         </Box>
         <Box className={classes.otherDetails}>
           {showMalariaReportField && (
-            <>
+            <div>
               <Box className={classes.subTitle}>
                 <Typography variant="h6">औलोको परिणाम</Typography>
               </Box>
@@ -728,10 +728,10 @@ export default function MalariaKustharogKalaazarLab(props) {
                   />
                 </Grid>
               </Grid>
-            </>
+            </div>
           )}
           {showKalaazarReportField && (
-            <>
+            <div>
               <Box className={classes.subTitle}>
                 <Typography variant="h6">कालाजारको परिणाम</Typography>
               </Box>
@@ -764,10 +764,10 @@ export default function MalariaKustharogKalaazarLab(props) {
                 ) : (<Grid item xs></Grid>)}
                 <Grid item xs></Grid>
               </Grid>
-            </>
+            </div>
           )}
           {showKustharogReportField && (
-            <>
+            <div>
               <Box className={classes.subTitle}>
                 <Typography variant="h6">कुष्ठ रोगको परिणाम</Typography>
               </Box>
@@ -823,7 +823,7 @@ export default function MalariaKustharogKalaazarLab(props) {
                   </Grid>
                 </Grid>
               </Box>
-            </>
+            </div>
           )}
         </Box>
         <Grid container>
@@ -842,6 +842,6 @@ export default function MalariaKustharogKalaazarLab(props) {
         </Grid>
       </CustomModal>
       <MalariaKustharogKalaazarLabRegister tableData={mainRegisterData} onEditRow={getDetailsById.bind(this)} />
-    </>
+    </div>
   );
 }

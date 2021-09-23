@@ -3,7 +3,7 @@ import { Box, Grid, Table, TableBody, TableCell, TableContainer, TableHead, Tabl
 
 export default function KusthaRogCard() {
   return (
-    <>
+    <div>
       <Box mt={3} mb={1}>
         <TableContainer>
           <Table classes={{ root: "table-bordered normal-spacing" }} size="small" aria-label="Kustha Rog Card">
@@ -38,6 +38,6 @@ export default function KusthaRogCard() {
           </TableBody>
         </Table>
       </TableContainer>
-    </>
+    </div>
   )
 }

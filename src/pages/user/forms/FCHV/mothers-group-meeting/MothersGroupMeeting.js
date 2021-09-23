@@ -100,7 +100,7 @@ export default function MothersGroupMeeting() {
     setRegisterVolunteerId(volunteerId);
   }
 
-  return (<>
+  return (<div>
     <Box display="flex" flexDirection="row" alignItems="center" justifyContent="space-between" borderBottom={1} mb={3} pb={1}>
       <Typography variant="h5">
         आमा समुहको बैठक
@@ -227,6 +227,6 @@ export default function MothersGroupMeeting() {
       </Box>
     </CustomModal>
     <MothersGroupMeetingRegister tableData={mothersGroupMeetingData} showActionColumn={mothersGroupMeetingData.length !== 0} onEditRow={handleEditFunction} />
-  </>
+  </div>
   );
 }

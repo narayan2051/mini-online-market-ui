@@ -98,7 +98,7 @@ export default function ChildrenFromTwentyEightDaysToFiftyNineMonths(props) {
   }
 
   return (
-    <>
+    <div>
       <Box display="flex" flexDirection="row" alignItems="center" justifyContent="space-between" borderBottom={1} mb={3} pb={1}>
         <Typography variant="h6">
           २८ दिन देखी ५९ महिना सम्मका बच्चाको मृत्यु विवरण
@@ -278,6 +278,6 @@ export default function ChildrenFromTwentyEightDaysToFiftyNineMonths(props) {
         </Box>
       </CustomModal>
       <ChildrenFromTwentyEightDaysToFiftyNineMonthsRegister tableData={mainRegisterData} showActionColumn={mainRegisterData.length !== 0} onEditRow={handleEditFunction} />
-    </>
+    </div>
   );
 }

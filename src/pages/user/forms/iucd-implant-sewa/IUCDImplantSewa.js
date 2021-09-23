@@ -222,7 +222,7 @@ export default function IUCDImplantSewa() {
       });
   };
   return (
-    <>
+    <div>
       <Box display="flex" flexDirection="row" alignItems="center" justifyContent="space-between" borderBottom={1} mb={3} pb={1}>
         <Typography variant="h6">
           आइ.यु.सि.डी तथा इम्प्लाण्ट सेवा रजिस्टर
@@ -642,6 +642,6 @@ export default function IUCDImplantSewa() {
         </Box>
       </CustomModal>
       <IUCDImplantRegister tableData={registerData} showActionColumn={registerData.length !== 0} onEditRow={IUCDImplantEditFunction.bind(this)} />
-    </>
+    </div>
   );
 }

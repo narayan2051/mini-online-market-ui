@@ -117,7 +117,7 @@ export default function MotherDeathDetails(props) {
     });
   }
   return (
-    <>
+    <div>
       <Box display="flex" flexDirection="row" alignItems="center" justifyContent="space-between" borderBottom={1} mb={3} pb={1}>
         <Box display="flex" alignItems="center">
           <Typography variant="h5">मातृ मृत्यु विवरण</Typography>
@@ -369,6 +369,6 @@ export default function MotherDeathDetails(props) {
         </Box>
       </CustomModal>
       <MotherDeathDetailRegister tableData={tableData} showActionColumn={tableData.length !== 0} onEditRow={handleEditFunction} />
-    </>
+    </div>
   );
 }

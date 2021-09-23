@@ -34,7 +34,7 @@ export default function HealthServiceCard() {
   }
 
   return (
-    <>
+    <div>
       <ReactToPrint
         trigger={() => (
           <Box className={classes.printIcon}>
@@ -129,6 +129,6 @@ export default function HealthServiceCard() {
         <PariwarNiyojanCard />
         <KusthaRogCard />
       </Box>
-    </>
+    </div>
   )
 }

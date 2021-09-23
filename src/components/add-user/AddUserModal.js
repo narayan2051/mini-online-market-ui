@@ -35,7 +35,7 @@ export default function AddUserModal({ showAddUserModal, handleAddUserModalClose
   }, [props.defaultValues, reset]);
 
   return (
-    <>
+    <div>
       <CustomModal
         title="नयाँ प्रयोगकर्ता थप्नुहोस्"
         onModalSubmit={handleSubmit(onSubmit)}
@@ -115,6 +115,6 @@ export default function AddUserModal({ showAddUserModal, handleAddUserModalClose
           </Grid>
         </Grid>
       </CustomModal>
-    </>
+    </div>
   );
 };

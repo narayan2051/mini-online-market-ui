@@ -185,7 +185,7 @@ export default function PatientAdmissionRegister(props) {
   }
 
   return (
-    <>
+    <div>
       <Box display="flex" flexDirection="row" alignItems="center" justifyContent="space-between" borderBottom={1} mb={3} pb={1}>
         <Typography variant="h5">
           बिरामी डिस्चार्ज रजिस्टर
@@ -522,6 +522,6 @@ export default function PatientAdmissionRegister(props) {
         </Box>
       </CustomModal>
       <PatientDischargeDetails tableData={dischargeDetails} showActionColumn={dischargeDetails.length !== 0} onEditRow={getDischargeDetailsById.bind(this)} />
-    </>
+    </div>
   );
 }

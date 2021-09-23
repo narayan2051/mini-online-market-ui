@@ -28,15 +28,15 @@ function Layout(props) {
     );
   return (
     <div className={classes.root}>
-      <>
+      <div>
         {isAuthenticated &&
-          <>
+          <div>
             <Header />
             <Sidebar />
-          </>
+          </div>
         }
         {mainContent}
-      </>
+      </div>
     </div>
   );
 }

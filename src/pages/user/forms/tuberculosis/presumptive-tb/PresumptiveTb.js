@@ -199,7 +199,7 @@ export default function PresumptiveTb() {
   }
 
   return (
-    <>
+    <div>
       <Box display="flex" flexDirection="row" alignItems="center" justifyContent="space-between" borderBottom={1} mb={3} pb={1}>
         <Typography variant="h5">
           सम्भावित क्षयरोग रजिस्टर
@@ -502,7 +502,7 @@ export default function PresumptiveTb() {
               {errors.treatmentStatus && <span className="error-message">{REQUIRED_FIELD}</span>}
             </Grid>
             {showReferringHospitalField && (
-              <>
+              <div>
                 <Grid item xs>
                   <TextField
                     label="प्रेषण गरेको स्वास्थ्य संस्थाको नाम"
@@ -517,7 +517,7 @@ export default function PresumptiveTb() {
                   />
                   {errors.referringHealthFacilityName && <span className="error-message">{REQUIRED_FIELD}</span>}
                 </Grid>
-              </>
+              </div>
             )}
           </Grid>
           <Grid container spacing={2} alignItems="center" className={classes.row}>
@@ -536,6 +536,6 @@ export default function PresumptiveTb() {
           </Grid>
         </Box>
       </CustomModal>
-    </>
+    </div>
   )
 }

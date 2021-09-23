@@ -187,7 +187,7 @@ export default function SafeAbortionService(props) {
     })
   }
 
-  return (<>
+  return (<div>
     <Box display="flex" flexDirection="row" alignItems="center" justifyContent="space-between" borderBottom={1} mb={3} pb={1}>
       <Typography variant="h5">
         सुरक्षित गर्भपतन सेवा रजिष्टर
@@ -755,6 +755,6 @@ export default function SafeAbortionService(props) {
       </Box>
     </CustomModal>
     <SafeAbortionServiceRegister tableData={safeAbortionRegisterData} showActionColumn={safeAbortionRegisterData.length !== 0} onEditRow={handleRowEdit} />
-  </>
+  </div>
   );
 }

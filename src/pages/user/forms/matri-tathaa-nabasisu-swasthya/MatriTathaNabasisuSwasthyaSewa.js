@@ -528,7 +528,7 @@ export default function MatriTathaNabasisuSwasthyaSewa() {
 
 
   return (
-    <>
+    <div>
       <Box>
         <Box display="flex" flexDirection="row" alignItems="center" justifyContent="space-between" borderBottom={1} mb={3} pb={1}>
           <Typography variant="h5">मातृ तथा नवशिशु स्वास्थ्य सेवा रजिष्टर</Typography>
@@ -1871,7 +1871,7 @@ export default function MatriTathaNabasisuSwasthyaSewa() {
               </Grid>
               <Typography variant="subtitle2">जिवित नवशिशुको विवरण</Typography>
               {aliveChildrenDetails.map((aliveChildrenDetail, index) => (
-                <>
+                <div>
                   <Box className={classes.aliveChildrenDetailsContainer}>
                     <Grid container spacing={2} alignItems="center" className={classes.row}>
                       <Grid item xs>
@@ -1964,7 +1964,7 @@ export default function MatriTathaNabasisuSwasthyaSewa() {
                     }
                     <Divider variant="middle" className={classes.divider} />
                   </Box>
-                </>
+                </div>
               ))}
               <Box mt={2} className={classes.aliveChildrenDetailsContainer}>
                 <Grid container justify="center" alignItems="center" className={classes.addAliveChildDetailsContainer}>
@@ -2392,6 +2392,6 @@ export default function MatriTathaNabasisuSwasthyaSewa() {
         </CustomModal>
         <MatriTathaNabasisuSwasthyaSewaRegister tableData={mainRegisterData} showActionColumn={mainRegisterData.length !== 0} onEditRow={matriTathaNawasisuEditFunction.bind(this)} />
       </Box>
-    </>
+    </div>
   );
 }

@@ -355,7 +355,7 @@ export default function PillsDepoServiceForm() {
   }
 
   return (
-    <>
+    <div>
       <Box display="flex" flexDirection="row" alignItems="center" justifyContent="space-between" borderBottom={1} mb={3} pb={1}>
         <Typography variant="h5">
           पिल्स, डिपो सेवा रजिष्टर
@@ -661,6 +661,6 @@ export default function PillsDepoServiceForm() {
         </Box>
       </CustomModal>
       <PillsDepoServiceRegister pillsDepoRegisterData={pillsDepoRegisterData} pillsDepoRegisterMonthlyReport={pillsDepoRegisterMonthlyReport} showActionColumn={pillsDepoRegisterData.length !== 0} onEditRow={handleRowEdit} fiscalYear={selectedFiscalYear} />
-    </>
+    </div>
   );
 }

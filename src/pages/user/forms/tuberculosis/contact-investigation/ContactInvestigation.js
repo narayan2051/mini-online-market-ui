@@ -333,7 +333,7 @@ export default function ContactInvestigation() {
   }
 
   return (
-    <>
+    <div>
       <Box display="flex" flexDirection="row" alignItems="center" justifyContent="space-between" borderBottom={1} mb={3} pb={1}>
         <Typography variant="h5">
           सम्पर्क परिक्षण तथा क्षयरोग प्रतिरोधात्मक उपचार रजिस्टर
@@ -940,6 +940,6 @@ export default function ContactInvestigation() {
         }
       </CustomModal>
       <ContactInvestigationRegister tableData={contactInvestigationData} onEditRow={handleContactInvestigationEdit.bind(this)} />
-    </>
+    </div>
   );
 }

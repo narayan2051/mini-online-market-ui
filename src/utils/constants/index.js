@@ -18,6 +18,7 @@ export const IS_SESSION_EXPIRED="Your Session Expired";
 export const SESSION_EXPIRED = "तपाईंको सेसन समाप्त भएको छ, कृपया लग-इन गर्नुहोस।";
 export const SOMETHING_WENT_WRONG = "Oops! Something went wrong. Please try again.";
 export const SUCCESS = "success";
+export const AUTH="auth";
 
 
 export const REQUIRED_FIELD="Required Field";
