@@ -79,9 +79,9 @@ export default function OrderManagement(props) {
       .catch((err) => console.log(err.message));
   };
 
-    // useEffect(() => {
-    //   getOrders();
-    // }, []);
+    useEffect(() => {
+      getOrders();
+    }, []);
 
   const setStatusHandler = (id, status) => {
     const data = {
