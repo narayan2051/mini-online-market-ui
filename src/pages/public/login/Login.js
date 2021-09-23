@@ -170,7 +170,7 @@ export default function LoginForm(props) {
           variant="contained"
           type="submit"
         >
-          Sign Up
+          <Link href="/signup">Sign Up</Link>
         </Button>
       </Grid>
     </Container>

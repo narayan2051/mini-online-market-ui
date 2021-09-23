@@ -24,6 +24,7 @@ import SingleOrder from "./pages/user/order-history/SingleOrder";
 import Checkout from "./pages/user/checkout/Checkout";
 import Payment from "./pages/user/checkout/Payment";
 import OrderDetail from "./pages/seller/order-detail/OrderDetail";
+import SignUp from "./pages/sign-up/SignUp";
 
 export default function App() {
   return (
@@ -34,6 +35,7 @@ export default function App() {
         <Layout>
           <Switch>
             <Route exact path="/" component={Login} />
+            <Route exact path="/signup" component={SignUp} />
             <Route
               exact
               path="/page-not-found"
