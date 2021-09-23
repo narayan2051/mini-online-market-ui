@@ -13,7 +13,7 @@ export default function Products() {
   const getProducts = () => {
     HTTPClient.get(PRODUCT_URL)
       .then((response) => {
-        // console.log(response.data);
+         console.log(response.data);
         setProducts(response.data);
       })
       .catch((err) => console.log(err.message));

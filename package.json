@@ -9,9 +9,13 @@
     "url": "https://codefusiontech.com"
   },
   "dependencies": {
+    "@emotion/react": "^11.4.1",
+    "@emotion/styled": "^11.3.0",
     "@material-ui/core": "^4.11.3",
     "@material-ui/icons": "^4.11.2",
     "@material-ui/pickers": "^3.2.10",
+    "@mui/icons-material": "^5.0.1",
+    "@mui/material": "^5.0.1",
     "ad-bs-converter": "^0.5.0",
     "axios": "^0.21.1",
     "chart.js": "^2.9.4",

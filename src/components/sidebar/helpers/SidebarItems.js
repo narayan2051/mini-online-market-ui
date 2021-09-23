@@ -54,13 +54,13 @@ export const USER_SIDEBAR_LINKS = [
   {
     id: 0,
     label: "Products",
-    link: "products",
+    link: "/user/products",
     iconComponent: <Home fontSize="small" />,
   },
   {
     id: 1,
     label: "User Profile",
-    link: "user-profile",
+    link: "/user/user-profile",
     iconComponent: <Group fontSize="small" />,
   },
 ];

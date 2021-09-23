@@ -8,6 +8,7 @@ import HTTPClient, { PRODUCT_URL } from "../../../api/api";
 import { Link } from "react-router-dom";
 import { Container } from "@material-ui/core";
 import { CSVLink } from "react-csv";
+import Product from "../product/Product";
 
 // html2PDF(node, options);
 const OrderHistory = () => {
@@ -28,25 +29,25 @@ const OrderHistory = () => {
 
   // @TODO: user reducers and state
 
-  //   useEffect(() => {
-  //     HTTPClient.get(PRODUCT_URL)
-  //       .then((response) => {
-  //         setData(response.data);
-  //       })
-  //       .catch((err) => console.log(err.message));
-  //   }, []);
-  // const productList =
-  //   data &&
-  //   data.map((item) => {
-  //     return (
-  //       <Product
-  //         id={item.id}
-  //         title={item.title}
-  //         price={item.price}
-  //         description={item.description}
-  //       />
-  //     );
-  //   });
+  useEffect(() => {
+    HTTPClient.get(PRODUCT_URL)
+      .then((response) => {
+        setData(response.data);
+      })
+      .catch((err) => console.log(err.message));
+  }, []);
+  const productList =
+    data &&
+    data.map((item) => {
+      return (
+        <Product
+          id={item.id}
+          title={item.title}
+          price={item.price}
+          description={item.description}
+        />
+      );
+    });
 
   const [numPages, setNumPages] = useState(null);
   const [pageNumber, setPageNumber] = useState(1);
@@ -78,7 +79,7 @@ const OrderHistory = () => {
     <div className="OrderHistory">
       <div>
         <h1> Order History </h1>
-        <div className="SingleOrderItem">
+        <div>
           <div>Order Id: #111</div>
           <div>
             Order status : <button className="primary"> Processing</button>
@@ -89,12 +90,12 @@ const OrderHistory = () => {
             Seller: <button className="primary"> Follow</button>
           </div>
           <div>
-            <Link to="/singleorder/1">
+            <Link to="/user/singleorder/?id=1">
               <button>See More</button>
             </Link>
           </div>
         </div>
-        <div className="SingleOrderItem">
+        <div>
           <div>Order Id: #111</div>
           <div>
             Order status : <button className="primary"> Processing</button>
@@ -105,7 +106,7 @@ const OrderHistory = () => {
             Seller: <button className="primary"> Follow</button>
           </div>
         </div>
-        <div className="SingleOrderItem">
+        <div>
           <div>Order Id: #111</div>
           <div>
             Order status : <button className="primary"> Processing</button>
@@ -119,7 +120,7 @@ const OrderHistory = () => {
       </div>
 
       <div id="capture">
-        <div className="SingleOrderItem">
+        <div>
           <div>Order Id: #111</div>
           <div>Order status : Delivered</div>
           <div>Shipping Address : ada dashboard adasd</div>
