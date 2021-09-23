@@ -124,11 +124,17 @@ export default function OrderManagement(props) {
                     id="demo-simple-select"
                     name="status"
                     label="Status"
-                    defaultValue={row.status}
+                    defaultValue={row.orderStatus}
                     onChange={(e) => setStatusHandler(row.id, e.target.value)}
                   >
                     <MenuItem value="Select Status">Select Status</MenuItem>
-                    <MenuItem value="SHIPPED">
+                    <MenuItem value="PROCESSING" selected>
+                      <Button>
+                        <Cached color="default" />
+                        Processing
+                      </Button>
+                    </MenuItem>
+                    <MenuItem value="SHIPPED" >
                       <Button type="submit">
                         <DirectionsBoat color="secondary" />
                         SHIPPED
@@ -144,12 +150,6 @@ export default function OrderManagement(props) {
                       <Button>
                         <Store color="success" />
                         Delivered
-                      </Button>
-                    </MenuItem>
-                    <MenuItem value="PROCESSING">
-                      <Button>
-                        <Cached color="default" />
-                        Processing
                       </Button>
                     </MenuItem>
                     <MenuItem value="CANCELLED">
