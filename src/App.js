@@ -15,11 +15,8 @@ import GlobalPageNotFound from "./pages/public/not-found/GlobalPageNotFound";
 import AddProduct from "./pages/seller/add-product/AddProduct";
 import SellerDashboard from "./pages/seller/dashboard/SellerDashboard";
 import UserDashboard from "./pages/user/dashboard/Dashboard";
-<<<<<<< HEAD
 import UserProfile from "./pages/user/user-profile/UserProfile";
-=======
 import Products from "./pages/user/products/Products";
->>>>>>> f4470c081a9d2fed4f80f018a2419e86f15141b0
 import Route from "./routes/Route";
 import history from "./services/history";
 
