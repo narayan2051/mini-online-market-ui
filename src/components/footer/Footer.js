@@ -13,14 +13,14 @@ export default function Footer(props) {
   const classes = styles();
   return (
     <Box className={classNames(classes.footer, {
-      [classes.drawerOpened]: isAuthenticated && isSidebarOpened,
-      [classes.drawerClosed]: isAuthenticated && !isSidebarOpened,
-    })}>
+        [classes.drawerOpened]: isAuthenticated && isSidebarOpened,
+        [classes.drawerClosed]: isAuthenticated && !isSidebarOpened,
+      })}>
       <Container maxWidth="sm">
         Copyright &copy;&nbsp;
-        <Link href="https://www.codefusiontech.com" target="_blank">
-          Code Fusion Technologies Pvt.Ltd.
-      </Link>
+        <Link href="#" target="_blank">
+          Everest Mini Market Pvt.Ltd.
+        </Link>
         &nbsp;{new Date().getFullYear()}
       </Container>
     </Box>

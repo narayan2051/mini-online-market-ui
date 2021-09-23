@@ -22,7 +22,6 @@ export const ADMIN_SIDEBAR_LINKS = [
   }
 ];
 
-
 export const SELLER_SIDEBAR_LINKS = [
   {
     id: 0,
@@ -47,8 +46,8 @@ export const SELLER_SIDEBAR_LINKS = [
 export const USER_SIDEBAR_LINKS = [
   {
     id: 0,
-    label: "गृहपृष्ठ",
-    link: "dashboard",
+    label: "Products",
+    link: "products",
     iconComponent: <Home fontSize="small" />
   },
   {

@@ -14,6 +14,7 @@ import Login from "./pages/public/login/Login";
 import NotAuthorized from "./pages/public/not-authorized/NotAuthorized";
 import GlobalPageNotFound from "./pages/public/not-found/GlobalPageNotFound";
 import UserDashboard from "./pages/user/dashboard/Dashboard";
+import Products from "./pages/user/products/Products";
 import Route from "./routes/Route";
 import history from "./services/history";
 
@@ -30,10 +31,12 @@ export default function App() {
             <Route exact path="/user-not-authorized" component={NotAuthorized} />
                 
             <Route exact path="/user/dashboard" component={UserDashboard} isPrivate />
+            <Route exact path="/user/products" component={Products} isPrivate />
             <Route exact path="/seller/dashboard" component={SellerDashboard} isPrivate/>
             <Route exact path="/admin/dashboard" component={AdminDashboard} isPrivate />
             <Route exact path="/admin/product-review" component={ProductReview} isPrivate />
             <Route exact path="/admin/users" component={Users} isPrivate />
+            
 
             <Route component={GlobalPageNotFound} isWrongLink />
           </Switch>
