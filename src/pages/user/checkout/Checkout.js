@@ -2,10 +2,9 @@ import React from "react";
 import "./Checkout.css";
 import Subtotal from "./Subtotal";
 import CheckoutProduct from "./CheckoutProduct";
-import { useCartDispatch, useCartState } from "../../../context/CartContext";
+import {useCartState } from "../../../context/CartContext";
 
 function Checkout() {
-  var cartDispatch = useCartDispatch();
   var { basket } = useCartState();
   console.log(basket)
   return (
