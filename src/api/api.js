@@ -1,6 +1,7 @@
 import axios from "axios";
 import { AppUtils } from "../utils/appUtils";
-import { IS_SESSION_EXPIRED } from "../utils/constants";
+import { AUTH, IS_SESSION_EXPIRED } from "../utils/constants";
+import { Cookies } from "../utils/storage/cookies";
 import { SessionStorage } from "../utils/storage/sessionStorage";
 
 export const LOCAL_CONSTANTS = {
@@ -25,7 +26,8 @@ const HTTPClient = axios.create({
   baseURL: BASE_URL,
   headers: {
     Accept: "application/json",
-    "Content-Type": "application/json"
+    "Content-Type": "application/json",
+    auth: Cookies.readCookie(AUTH) || ""
   },
   withCredentials: true
 });

@@ -29,7 +29,6 @@ export default function App() {
             <Route exact path="/page-not-found" component={GlobalPageNotFound} isWrongLink />
             <Route exact path="/user-not-authorized" component={NotAuthorized} />
                 
-
             <Route exact path="/user/dashboard" component={UserDashboard} isPrivate />
             <Route exact path="/seller/dashboard" component={SellerDashboard} isPrivate/>
             <Route exact path="/admin/dashboard" component={AdminDashboard} isPrivate />
