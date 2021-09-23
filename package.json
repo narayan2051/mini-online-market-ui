@@ -24,7 +24,6 @@
     "react-notifications-component": "^3.0.3",
     "react-router-dom": "^5.2.0",
     "react-scripts": "4.0.2",
-    "react-select": "^4.1.0",
     "react-to-print": "^2.12.3"
   },
   "devDependencies": {
