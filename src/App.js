@@ -14,6 +14,7 @@ import NotAuthorized from "./pages/public/not-authorized/NotAuthorized";
 import GlobalPageNotFound from "./pages/public/not-found/GlobalPageNotFound";
 import AddProduct from "./pages/seller/add-product/AddProduct";
 import SellerDashboard from "./pages/seller/dashboard/SellerDashboard";
+import OrderManagement from "./pages/seller/order-manage/OrderManagement";
 import UserDashboard from "./pages/user/dashboard/Dashboard";
 import Route from "./routes/Route";
 import history from "./services/history";
@@ -33,6 +34,7 @@ export default function App() {
             <Route exact path="/user/dashboard" component={UserDashboard} isPrivate />
             <Route exact path="/seller/dashboard" component={SellerDashboard} isPrivate/>
             <Route exact path="/seller/add-product" component={AddProduct} isPrivate/>
+            <Route exact path="/seller/order-management" component={OrderManagement} isPrivate/>
             <Route exact path="/admin/dashboard" component={AdminDashboard} isPrivate />
             <Route exact path="/admin/product-review" component={ProductReview} isPrivate />
             <Route exact path="/admin/users" component={Users} isPrivate />

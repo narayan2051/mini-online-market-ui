@@ -1,6 +1,5 @@
 import {
   Container,
-  Icon,
   IconButton,
   Table,
   TableBody,
@@ -11,12 +10,16 @@ import {
 } from "@material-ui/core";
 import { Delete } from "@material-ui/icons";
 import React, { useEffect, useState } from "react";
-import HTTPClient, { API_URL, PRODUCT_URL } from "../../../api/api";
+import HTTPClient, { PRODUCT_URL } from "../../../api/api";
 
 export default function SellerDashboard(props) {
   const [productData, setProductData] = useState([]);
 
   useEffect(() => {
+    getData();
+  }, []);
+
+  const getData = () => {
     HTTPClient.get(PRODUCT_URL)
       .then((response) => {
         setProductData(response.data);
@@ -24,7 +27,15 @@ export default function SellerDashboard(props) {
       .catch((error) => {
         console.log(error);
       });
-  },[]);
+  };
+
+  const handleDelete = (id) => {
+    HTTPClient.delete(PRODUCT_URL + "/" + id).then((response) => {
+      if (response.data.type === "success") {
+        getData();
+      }
+    });
+  };
 
   return (
     <Container maxWidth="sm">
@@ -46,7 +57,11 @@ export default function SellerDashboard(props) {
               <TableCell>{item.description}</TableCell>
               <TableCell>{item.price}</TableCell>
               <TableCell>{item.quantity}</TableCell>
-              <TableCell><IconButton><Delete/></IconButton></TableCell>
+              <TableCell>
+                <IconButton onClick={() => handleDelete(item.id)}>
+                  <Delete />
+                </IconButton>
+              </TableCell>
             </TableRow>
           ))}
         </TableBody>

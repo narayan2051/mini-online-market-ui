@@ -18,8 +18,8 @@ export default function Footer(props) {
     })}>
       <Container maxWidth="sm">
         Copyright &copy;&nbsp;
-        <Link href="https://www.codefusiontech.com" target="_blank">
-          Code Fusion Technologies Pvt.Ltd.
+        <Link href="#" target="_blank">
+          Mini Online Market
       </Link>
         &nbsp;{new Date().getFullYear()}
       </Container>
