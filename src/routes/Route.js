@@ -11,7 +11,7 @@ export default function RouteWrapper({ component: Component, path: urlPath, isPr
   } else if (!isPrivate && !isWrongLink && !urlPath.includes("/user-not-authorized") && userRole === ROLE_ADMIN) {
     return <Redirect to="/admin/dashboard" />;
   } else if (!isPrivate && !isWrongLink && !urlPath.includes("/user-not-authorized") && userRole === ROLE_USER) {
-    return <Redirect to="/user/dashboard" />;
+    return <Redirect to="/user/products" />;
   } else if (!isPrivate && !isWrongLink && !urlPath.includes("/user-not-authorized") && userRole === ROLE_SELLER) {
     return <Redirect to="/seller/dashboard" />;
   } else if (isPrivate && urlPath.includes("/admin") && userRole !== ROLE_ADMIN) {

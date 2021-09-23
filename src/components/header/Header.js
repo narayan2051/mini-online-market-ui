@@ -35,7 +35,6 @@ import {
   USER_INFO,
 } from "../../utils/constants";
 import { SessionStorage } from "../../utils/storage/sessionStorage";
-import AddAlertMessage from "../alert/Alert";
 import styles from "./style";
 import { Link } from "react-router-dom";
 
@@ -65,7 +64,6 @@ export default function Header(props) {
         }
       })
       .catch((error) => {
-        AddAlertMessage({ type: "error", message: SOMETHING_WENT_WRONG });
       });
   };
 

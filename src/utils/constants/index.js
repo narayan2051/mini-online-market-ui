@@ -1,4 +1,3 @@
-import { OTHER } from "./forms/index";
 export const REMEMBER_ME = "hmis-remember-me";
 export const USER_ROLE = "role";
 export const ROLE_ADMIN = "ADMIN";

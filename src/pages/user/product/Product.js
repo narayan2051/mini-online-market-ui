@@ -3,30 +3,27 @@ import React from "react";
 import styles from "../../../components/sidebar/helpers/SidebarLink/styles";
 import { useCartDispatch, useCartState } from "../../../context/CartContext";
 
-
-
 export default function Product(data) {
   const classes = styles();
   var cartDispatch = useCartDispatch();
   var { basket } = useCartState();
-    const addToBasket = () => {
-      // dispatch the item to data layer
-      cartDispatch({
-        type: "ADD_TO_BASKET",
-        item: {
-          id: data.id,
-          title: data.title,
-          description: data.description,
-          price: data.price,
-          quantity: 1
-        },
-      });
-      console.log(basket)
-    };
+  const addToBasket = () => {
+    // dispatch the item to data layer
+    cartDispatch({
+      type: "ADD_TO_BASKET",
+      item: {
+        id: data.id,
+        title: data.title,
+        description: data.description,
+        price: data.price,
+        quantity: 1,
+      },
+    });
+    console.log(basket);
+  };
 
-
-  return (<div className="product" key={data.id}>
-    <Container maxWidth="lg" className={classes.root} disableGutters>
+  return (
+    <div className="product" key={data.id}>
       <div className="product__info">
         <p> {data.title} </p>
         <p>dasda</p>
@@ -39,7 +36,9 @@ export default function Product(data) {
         </div>
       </div>
 
-      <button className="fade" onClick={addToBasket}>Add to Basket</button>
-      </Container>
-    </div>);
+      <button className="fade" onClick={addToBasket}>
+        Add to Basket
+      </button>
+    </div>
+  );
 }

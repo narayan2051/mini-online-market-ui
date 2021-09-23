@@ -8,7 +8,7 @@ import {
   FormControlLabel,
   Grid,
   Link,
-  TextField
+  TextField,
 } from "@material-ui/core";
 import { Add } from "@material-ui/icons";
 import ExitToAppIcon from "@material-ui/icons/ExitToApp";
@@ -16,7 +16,6 @@ import React, { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import HTTPClient, { API_URL } from "../../../api/api";
 import logo from "../../../assets/img/logo.png";
-import AddAlertMessage from "../../../components/alert/Alert";
 import { useUserDispatch } from "../../../context/UserContext";
 import {
   ENTER_VALID_EMAIL,
@@ -27,7 +26,7 @@ import {
   SESSION_EXPIRED,
   SOMETHING_WENT_WRONG,
   SUCCESS,
-  USER_ROLE
+  USER_ROLE,
 } from "../../../utils/constants/index";
 import { Cookies } from "../../../utils/storage/cookies";
 import { SessionStorage } from "../../../utils/storage/sessionStorage";
@@ -45,10 +44,6 @@ export default function LoginForm(props) {
 
   useEffect(() => {
     if (SessionStorage.getItem(IS_SESSION_EXPIRED) === "true") {
-      AddAlertMessage({
-        type: "error",
-        message: SESSION_EXPIRED,
-      });
       SessionStorage.removeItem(IS_SESSION_EXPIRED);
     }
   }, []);
@@ -68,12 +63,10 @@ export default function LoginForm(props) {
           props.history.push("/");
         } else {
           userDispatch({ type: LOGIN_FAILURE });
-          AddAlertMessage({ type: jsondata.type, message: jsondata.message });
         }
       })
       .catch((error) => {
         setIsLoading(false);
-        AddAlertMessage({ type: "error", message: SOMETHING_WENT_WRONG });
         userDispatch({ type: LOGIN_FAILURE });
       });
   };

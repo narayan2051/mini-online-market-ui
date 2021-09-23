@@ -5,7 +5,6 @@ import { Router, Switch } from "react-router-dom";
 import "./assets/scss/app.scss";
 import Footer from "./components/footer/Footer";
 import Layout from "./components/layout/Layout";
-import ScrollToTop from "./components/scroll-to-top/ScrollToTop";
 import AdminDashboard from "./pages/admin/dashboard/Dashboard";
 import ProductReview from "./pages/admin/product-review/ProductReview";
 import Users from "./pages/admin/users/Users";
@@ -59,12 +58,6 @@ export default function App() {
               component={NotAuthorized}
             />
 
-            <Route
-              exact
-              path="/user/dashboard"
-              component={UserDashboard}
-              isPrivate
-            />
             <Route exact path="/user/products" component={Products} isPrivate />
             <Route exact path="/user/checkout" component={Checkout} isPrivate />
             <Route exact path="/user/payment" component={Payment} isPrivate />
@@ -134,7 +127,6 @@ export default function App() {
         </Layout>
       </Router>
       <Footer />
-      <ScrollToTop />
     </div>
   );
 }
