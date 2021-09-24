@@ -15,11 +15,13 @@ import {
 
 import { AppUtils } from "../../../utils/appUtils";
 import HTTPClient, { ORDER_URL, PRODUCT_URL } from "../../../api/api";
+import { useForm } from "react-hook-form";
 
 function SingleOrder() {
   const [productList, setProductList] = useState([]);
   const orderId = AppUtils.getUrlParam("id");
   const reviewRef = useRef(null);
+  const { register } = useForm();
   useEffect(() => {
     HTTPClient.get(ORDER_URL + "/" + AppUtils.getUrlParam("id"))
       .then((response) => {
@@ -27,26 +29,6 @@ function SingleOrder() {
       })
       .catch((err) => {});
   }, []);
-  //console.log(productList);
-  const updateReview = (productId) => {
-    const data = {
-      productId,
-      reviewText: reviewRef.current.value,
-    };
-    HTTPClient.post(PRODUCT_URL, data)
-      .then((response) => console.log(response))
-      .catch((err) => console.log(err));
-  };
-
-  // const changeReviewHandler = (e, productId) => {
-  //   productList.map((product) => {
-  //     if (product.id === productId) {
-  //       return { ...product, reviewText: e.target.value };
-  //     } else {
-  //       return product;
-  //     }
-  //   });
-  // };
 
   return (
     <div className="OrderHistory">
@@ -56,7 +38,7 @@ function SingleOrder() {
           <Table sx={{ minWidth: 700 }} aria-label="customized table">
             <TableHead>
               <TableRow id="head">
-                <TableCell>Order_ID</TableCell>
+                <TableCell>Order Number</TableCell>
                 <TableCell align="right">Product_ID</TableCell>
                 <TableCell align="right">Product_Name</TableCell>
                 <TableCell align="right">Price</TableCell>
@@ -76,23 +58,8 @@ function SingleOrder() {
                     <TableCell align="right">{row.title}</TableCell>
                     <TableCell align="right">{row.price}</TableCell>
                     <TableCell align="right">{row.quantity}</TableCell>
-                    <TableCell align="right">
-                      <TextField
-                        id="outlined-multiline-static"
-                        multiline
-                        // onChange={(e) => changeReviewHandler(e, row.productId)}
-                        ref={reviewRef}
-                      />
-                    </TableCell>
                     <TableCell>
-                      <Button
-                        color="warning"
-                        variant="outlined"
-                        onClick={(e) => updateReview(row.productId)}
-                      >
-                        {/* <EditOff /> */}
-                        Submit
-                      </Button>
+                      <a href={`review?id=` + row.id}>Review</a>
                     </TableCell>
                   </TableRow>
                 );

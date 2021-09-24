@@ -24,6 +24,7 @@ import Checkout from "./pages/user/checkout/Checkout";
 import Payment from "./pages/user/checkout/Payment";
 import OrderDetail from "./pages/seller/order-detail/OrderDetail";
 import SignUp from "./pages/sign-up/SignUp";
+import Review from "./pages/user/order-history/Review";
 
 export default function App() {
   return (
@@ -61,6 +62,7 @@ export default function App() {
             <Route exact path="/user/products" component={Products} isPrivate />
             <Route exact path="/user/checkout" component={Checkout} isPrivate />
             <Route exact path="/user/payment" component={Payment} isPrivate />
+            <Route exact path="/user/review" component={Review} isPrivate />
             <Route
               exact
               path="/seller/dashboard"
@@ -91,7 +93,7 @@ export default function App() {
               component={OrderManagement}
               isPrivate
             />
-             <Route
+            <Route
               exact
               path="/seller/orderDetail"
               component={OrderDetail}
