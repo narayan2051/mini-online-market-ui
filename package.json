@@ -1,12 +1,12 @@
 {
-  "name": "hmis",
+  "name": "MOM",
   "version": "1.0.5",
-  "description": "Health Management Information System",
+  "description": "Evereset Mini Market",
   "private": true,
   "author": {
-    "name": "Code Fusion Technologies Pvt. Ltd.",
-    "email": "info@codefusiontech.com",
-    "url": "https://codefusiontech.com"
+    "name": "Evereset Mini Market",
+    "email": "",
+    "url": ""
   },
   "dependencies": {
     "@emotion/react": "^11.4.1",
@@ -20,7 +20,6 @@
     "axios": "^0.21.1",
     "chart.js": "^2.9.4",
     "classnames": "^2.2.6",
-    "datepicker-nepali-reactjs": "0.0.8",
     "history": "^4.10.1",
     "html2canvas": "^1.3.2",
     "jspdf": "^2.4.0",

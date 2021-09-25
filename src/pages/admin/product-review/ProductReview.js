@@ -85,7 +85,7 @@ export default function ProductReview() {
                         )
                       }
                     >
-                      {item.status ? <Check /> : <Close />}
+                      {item.status ? <Close /> : <Check />}
                     </IconButton>
                   </TableCell>
                 </TableRow>

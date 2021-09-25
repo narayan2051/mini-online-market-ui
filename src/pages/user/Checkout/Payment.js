@@ -4,9 +4,9 @@ import { useForm } from "react-hook-form";
 import { Link, useHistory } from "react-router-dom";
 import HTTPClient, { ORDER_URL } from "../../../api/api";
 import {
-    getBasketTotal,
-    useCartDispatch,
-    useCartState
+  getBasketTotal,
+  useCartDispatch,
+  useCartState,
 } from "../../../context/CartContext";
 import CheckoutProduct from "./CheckoutProduct";
 import "./Payment.css";
@@ -26,7 +26,10 @@ function Payment() {
     console.log(allData);
     HTTPClient.post(ORDER_URL, allData)
       .then((resp) => {
-        history.push("dashboard");
+        cartDispatch({
+          type: "EMPTY_BASKET",
+        });
+        history.push("user-profile");
       })
       .catch((err) => {});
   };

@@ -62,7 +62,7 @@ const OrderHistory = () => {
     doc.html(document.querySelector("#capture"), {
       callback: function (pdf) {
         // html2canvas(document.querySelector("#capture")).then((canvas) => {
-        pdf.save("download.pdf");
+        pdf.save("orders.pdf");
         // });
       },
     });
@@ -107,14 +107,17 @@ const OrderHistory = () => {
                     {new Date(row.createdDate).toLocaleDateString()}
                   </TableCell>
                   <TableCell>${row.amount}</TableCell>
-                  <TableCell>{row.orderStatus}
-                    {
-                      row.orderStatus === "PROCESSING" ?
-                        <button onClick={(e) => setStatusHandler(row.id, "CANCELLED")}>
-                          Cancel Order
-                        </button>
-                        : ""
-                    }
+                  <TableCell>
+                    {row.orderStatus}
+                    {row.orderStatus === "PROCESSING" ? (
+                      <button
+                        onClick={(e) => setStatusHandler(row.id, "CANCELLED")}
+                      >
+                        Cancel Order
+                      </button>
+                    ) : (
+                      ""
+                    )}
                   </TableCell>
                   <TableCell>{row.billingAddress}</TableCell>
                   <TableCell>{row.shippingAddress}</TableCell>
@@ -123,9 +126,10 @@ const OrderHistory = () => {
           </TableBody>
         </Table>
         <div className="export_buttons">
-          {/* <CSVLink data={csvData}>
-          <button>CSV</button>
-        </CSVLink> */}
+          <CSVLink data={csvData} filename="orders.csv">
+            <button>Export CSV </button>
+          </CSVLink>
+          &nbsp;
           <button id="btn" onClick={genereatePDF}>
             Export PDF
           </button>
@@ -138,30 +142,23 @@ const OrderHistory = () => {
               <TableCell>Order Number</TableCell>
               <TableCell>Date</TableCell>
               <TableCell>Amount</TableCell>
-              <TableCell>Order Status</TableCell>
-              <TableCell>Billing Address</TableCell>
-              <TableCell>Shipping Adress</TableCell>
             </TableRow>
           </TableHead>
           <TableBody>
             {data &&
               data.map((row) => (
                 <TableRow key={row.id}>
-                  <TableCell>{row.id}                  </TableCell>
+                  <TableCell>{row.id} </TableCell>
                   <TableCell>
                     {new Date(row.createdDate).toLocaleDateString()}
                   </TableCell>
                   <TableCell>${row.amount}</TableCell>
-                  <TableCell>{row.orderStatus}
-                  </TableCell>
-                  <TableCell>{row.billingAddress}</TableCell>
-                  <TableCell>{row.shippingAddress}</TableCell>
                 </TableRow>
               ))}
           </TableBody>
         </Table>
       </div>
-      </div>
+    </div>
   );
 };
 

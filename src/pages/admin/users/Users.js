@@ -71,7 +71,7 @@ export default function Users() {
                       <IconButton
                         onClick={() => approvalHandler(user.id, !user.approved)}
                       >
-                        {isChecked ? <Check /> : <Close />}
+                        {isChecked ? <Close /> : <Check />}
                       </IconButton>
                     </TableCell>
                   </TableRow>
